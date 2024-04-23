@@ -102,20 +102,20 @@ Send {Volume_Down} ; Replaces Windows Key + NumpadLeft [Left] as Volume Down [Nu
 Return
 
 #NumpadUp::
-Send {Volume_Mute}   ; Replaces Windows Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
+Send {Volume_Mute} ; Replaces Windows Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
 Return
 
 
 #Numpad7::
-Send {Volume_Up}      ; Replaces Windows Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
+Send {Volume_Up}   ; Replaces Windows Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
 Return
 
 #Numpad4::
-Send {Volume_Down}    ; Replaces Windows Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
+Send {Volume_Down} ; Replaces Windows Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
 Return
 
 #Numpad8::
-Send {Volume_Mute}    ; Replaces Windows Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
+Send {Volume_Mute} ; Replaces Windows Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
 Return
 
 ;-------------------------------------------------------------------
@@ -134,20 +134,20 @@ Send {Volume_Down} ; Replaces Alt Key + NumpadLeft [Left] as Volume Down [Numloc
 Return
 
 !NumpadUp::
-Send {Volume_Mute}   ; Replaces Alt Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
+Send {Volume_Mute} ; Replaces Alt Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
 Return
 
 
 !Numpad7::
-Send {Volume_Up}      ; Replaces Alt Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
+Send {Volume_Up}   ; Replaces Alt Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
 Return
 
 !Numpad4::
-Send {Volume_Down}    ; Replaces Alt Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
+Send {Volume_Down} ; Replaces Alt Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
 Return
 
 !Numpad8::
-Send {Volume_Mute}    ; Replaces Alt Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
+Send {Volume_Mute} ; Replaces Alt Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
 Return
 
 ;-------------------------------------------------------------------
