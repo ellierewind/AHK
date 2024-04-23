@@ -114,58 +114,58 @@ else if Pedersen = url ; Open an URL from the clipboard (naive - will try to run
 ;;; INTERACT WITH THIS AHK SCRIPT ;;;
 ;-------------------------------------------------------------------------------
 else if Pedersen = rel%A_Space% ; Reload this script
-{
-    gui_destroy() ; removes the GUI even when the reload fails
-    Reload
-}
+    {
+        gui_destroy() ; removes the GUI even when the reload fails
+        Reload
+    }
 else if Pedersen = dir ; Open the directory for this script
-{
-    gui_destroy()
-    Run, %A_ScriptDir%
-}
+    {
+        gui_destroy()
+        Run, %A_ScriptDir%
+    }
 else if Pedersen = host ; Edit host script
-{
-    gui_destroy()
-    run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptFullPath%"
-}
+    {
+        gui_destroy()
+        run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptFullPath%"
+    }
 else if Pedersen = user ; Edit GUI user commands
-{
-    gui_destroy()
-    run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\GUI\UserCommands.ahk"
-}
+    {
+        gui_destroy()
+        run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\GUI\UserCommands.ahk"
+    }
 
 ;-------------------------------------------------------------------------------
 ;;; TYPE RAW TEXT ;;;
 ;-------------------------------------------------------------------------------
 else if Pedersen = name%A_Space% ; Name
-{
-    gui_destroy()
-    Send, Ellie
-}
+    {
+        gui_destroy()
+        Send, Ellie
+    }
 else if Pedersen = clip%A_Space% ; Paste clipboard content without formatting
-{
-    gui_destroy()
-    SendRaw, %ClipBoard%
-}
+    {
+        gui_destroy()
+        SendRaw, %ClipBoard%
+    }
 
 ;-------------------------------------------------------------------------------
 ;;; OPEN FOLDERS ;;;
 ;-------------------------------------------------------------------------------
 else if Pedersen = desk%A_Space% ; Opens Desktop Folder
-{
-    gui_destroy()
-    run C:\Users\%A_UserName%\Desktop
-}
+    {
+        gui_destroy()
+        Run, C:\Users\%A_UserName%\Desktop
+    }
 else if Pedersen = down%A_Space% ; Opens Downloads Folder
-{
-    gui_destroy()
-    run C:\Users\%A_UserName%\Downloads
-}
+    {
+        gui_destroy()
+        Run, C:\Users\%A_UserName%\Downloads
+    }
 else if Pedersen = rec%A_Space% ; Opens Recycle Bin
-{
-    gui_destroy()
-    Run ::{645FF040-5081-101B-9F08-00AA002F954E}
-}
+    {
+        gui_destroy()
+        Run ::{645FF040-5081-101B-9F08-00AA002F954E}
+    }
 else if Pedersen = cst ; Changes Timezone to CST
     {
         gui_destroy()
