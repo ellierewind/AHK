@@ -18,6 +18,12 @@
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
+
+::~1::
+Send Hi %Clipboard%, this is Ellie. How are you today? Hi Amr, this is Ellie.
+return
+
+
 ;-------------------------------------------------------------------
 
 ;       ;;; Royal Kludge Keyboard Broken Keys Reassign ;;;
@@ -45,6 +51,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Middle mouse button to move up a folder in Explorer ;;;
+
 #IfWinActive, ahk_class CabinetWClass
 ~MButton::Send !{Up} 
 #IfWinActive
@@ -57,6 +64,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Middle mouse button to move up a folder in Context Explorer ;;;
+
 #IfWinActive, ahk_class #32770
 ~MButton::Send !{Up} 
 #IfWinActive
@@ -69,9 +77,11 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Adds "Windows Key" + Scroll Up/Down as a modifier for Volume Control ;;;
+
 #WheelUp::Send {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
 #WheelDown::Send {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
 Return
+
 ;-------------------------------------------------------------------
 
 
@@ -79,6 +89,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Replaces NumpadSubtract [-] to Windows Key + D [Show Desktop] ;;;
+
 #IfWinNotActive, ahk_class MediaPlayerClassicW ; Disables this hotkey when mpc-hc is in focus
 {	
 NumpadSub::#d
@@ -93,6 +104,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Replaces Windows key + Numpad Keys for Volume Control ;;;
+
 #NumpadHome::
 Send {Volume_Up}   ; Replaces Windows Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
 Return
@@ -125,6 +137,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Replaces Alt + Numpad Keys for Volume Control ;;;
+
 !NumpadHome::
 Send {Volume_Up}   ; Replaces Alt Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
 Return
@@ -157,6 +170,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Switch Virtual Desktops. Use Windows Key + Q and Windows Key + E ;;;
+
 #e::
 SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to previous virtual desktop
 Return
@@ -172,6 +186,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Toggles File Extensions (in Windows Explorer) ;;;
+
 #y: 
 f_ToggleFileExt()
 Return
@@ -183,6 +198,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Toggles Hidden Files. Use [Windows Key + H] ;;;
+
 #h:: ;Win+H shortcut
 f_ToggleHidden()
 Return
@@ -194,6 +210,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Replace "Insert" key with Paste (Ctrl + V). Use [Insert] ;;;
+
 Ins::^v
 Return
 
@@ -204,6 +221,7 @@ Return
 ;-------------------------------------------------------------------
 
 ;       ;;; Disables F1 key in Chrome and File Explorer ;;;
+
 #IfWinActive ahk_exe chrome.exe
 F1::
 Return
@@ -240,7 +258,7 @@ Return
 
 #IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to specific program
 
-#M:: ; Trigger on Win+M
+#M:: ; Win+M
 
   ; Send Numpad9 x times - Zooms in using MPC-HC
   Loop, 12
@@ -340,13 +358,9 @@ Return
 ;_________________________________________________________________________________________________________________________________;
 
 
-
-
 ;;;;------------------------------------------------------------------------------------------------
 ;      ;;; Toggles File Extensions Function (in Windows Explorer) ;;;                              ;
 ;;;;------------------------------------------------------------------------------------------------
-
-
 
 
 ;-------------------------------------------------------------------
@@ -403,13 +417,9 @@ Return
 ;-------------------------------------------------------------------
 
 
-
-
 ;;;;------------------------------------------------------------------------------------------------
 ;      ;;; Toggles Hidden Files Function (in Windows Explorer) ;;;                                 ;
 ;;;;------------------------------------------------------------------------------------------------
-
-
 
 
 ;-------------------------------------------------------------------
