@@ -24,19 +24,19 @@
 
 \::
 SendInput, `;
-return
+Return
 
 +\::
 SendInput, `:
-return
+Return
 
 +NumpadDiv::
 SendInput,|
-return
+Return
 
 +NumpadSub::
 SendInput, {NumpadSub}
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -48,7 +48,7 @@ return
 #IfWinActive, ahk_class CabinetWClass
 ~MButton::Send !{Up} 
 #IfWinActive
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -60,7 +60,7 @@ return
 #IfWinActive, ahk_class #32770
 ~MButton::Send !{Up} 
 #IfWinActive
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -71,7 +71,7 @@ return
 ;       ;;; Adds "Windows Key" + Scroll Up/Down as a modifier for Volume Control ;;;
 #WheelUp::Send {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
 #WheelDown::Send {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
-return
+Return
 ;-------------------------------------------------------------------
 
 
@@ -84,7 +84,7 @@ return
 NumpadSub::#d
 }
 #IfWinNotActive
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -93,14 +93,30 @@ return
 ;-------------------------------------------------------------------
 
 ;       ;;; Replaces Windows key + Numpad Keys for Volume Control ;;;
-#NumpadHome::Send {Volume_Up}   ; Replaces Windows Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
-#NumpadLeft::Send {Volume_Down} ; Replaces Windows Key + NumpadLeft [Left] as Volume Down [Numlock has to be off]
-#NumpadUp::Send {Volume_Mute}   ; Replaces Windows Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
+#NumpadHome::
+Send {Volume_Up}   ; Replaces Windows Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
+Return
 
-#Numpad7::Send {Volume_Up}      ; Replaces Windows Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
-#Numpad4::Send {Volume_Down}    ; Replaces Windows Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
-#Numpad8::Send {Volume_Mute}    ; Replaces Windows Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
-return
+#NumpadLeft::
+Send {Volume_Down} ; Replaces Windows Key + NumpadLeft [Left] as Volume Down [Numlock has to be off]
+Return
+
+#NumpadUp::
+Send {Volume_Mute}   ; Replaces Windows Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
+Return
+
+
+#Numpad7::
+Send {Volume_Up}      ; Replaces Windows Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
+Return
+
+#Numpad4::
+Send {Volume_Down}    ; Replaces Windows Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
+Return
+
+#Numpad8::
+Send {Volume_Mute}    ; Replaces Windows Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
+Return
 
 ;-------------------------------------------------------------------
 
@@ -109,14 +125,30 @@ return
 ;-------------------------------------------------------------------
 
 ;       ;;; Replaces Alt + Numpad Keys for Volume Control ;;;
-!NumpadHome::Send {Volume_Up}   ; Replaces Alt Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
-!NumpadLeft::Send {Volume_Down} ; Replaces Alt Key + NumpadLeft [Left] as Volume Down [Numlock has to be off]
-!NumpadUp::Send {Volume_Mute}   ; Replaces Alt Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
+!NumpadHome::
+Send {Volume_Up}   ; Replaces Alt Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
+Return
 
-!Numpad7::Send {Volume_Up}      ; Replaces Alt Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
-!Numpad4::Send {Volume_Down}    ; Replaces Alt Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
-!Numpad8::Send {Volume_Mute}    ; Replaces Alt Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
-return
+!NumpadLeft::
+Send {Volume_Down} ; Replaces Alt Key + NumpadLeft [Left] as Volume Down [Numlock has to be off]
+Return
+
+!NumpadUp::
+Send {Volume_Mute}   ; Replaces Alt Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
+Return
+
+
+!Numpad7::
+Send {Volume_Up}      ; Replaces Alt Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
+Return
+
+!Numpad4::
+Send {Volume_Down}    ; Replaces Alt Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
+Return
+
+!Numpad8::
+Send {Volume_Mute}    ; Replaces Alt Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
+Return
 
 ;-------------------------------------------------------------------
 
@@ -125,9 +157,13 @@ return
 ;-------------------------------------------------------------------
 
 ;       ;;; Switch Virtual Desktops. Use Windows Key + Q and Windows Key + E ;;;
-#e:: sendinput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to previous virtual desktop
-#q:: sendinput {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}      ; switch to next virtual desktop
-return
+#e::
+SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to previous virtual desktop
+Return
+
+#q::
+SendInput {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}      ; switch to next virtual desktop
+Return
 
 ;-------------------------------------------------------------------
 
@@ -138,7 +174,7 @@ return
 ;       ;;; Toggles File Extensions (in Windows Explorer) ;;;
 #y: 
 f_ToggleFileExt()
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -159,7 +195,7 @@ Return
 
 ;       ;;; Replace "Insert" key with Paste (Ctrl + V). Use [Insert] ;;;
 Ins::^v
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -170,11 +206,11 @@ return
 ;       ;;; Disables F1 key in Chrome and File Explorer ;;;
 #IfWinActive ahk_exe chrome.exe
 F1::
-return
+Return
 
 #IfWinActive ahk_class CabinetWClass
 F1::
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -187,12 +223,12 @@ return
 #w:: ; Windows + W
 FormatTime, CurrentDateTime,, yyyy-MM-dd - hh;mm tt
 Send %CurrentDateTime%
-return
+Return
 
 +#w:: ; Windows + Shift + W
 FormatTime, CurrentTime,, hh;mm tt
 Send %CurrentTime%
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -209,18 +245,18 @@ return
   ; Send Numpad9 x times - Zooms in using MPC-HC
   Loop, 12
   {
-    sendinput, {Numpad9}
+    SendInput, {Numpad9}
   }
 
   ; Send Ctrl+Numpad9 x times - Pans up using MPC-HC
   Loop, 12
   {
-    sendinput, ^{Numpad8}
+    SendInput, ^{Numpad8}
   }
 
 #IfWinActive ; Optional: End of restriction
 
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -250,7 +286,7 @@ Sleep, 50
 Send, 2 ; Slot 02
 Sleep, 50
 Send, {Escape}
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -273,7 +309,7 @@ Loop 27 {
 }
 
 Send, {Shift up}    ; Release Shift key
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -289,7 +325,7 @@ F16::
 	Sleep, 20           ; Wait for 50 milliseconds
 	Click, 1282, 1219    ; Click on the third specific position
 	Sleep, 20    
-return
+Return
 
 ;-------------------------------------------------------------------
 
@@ -332,7 +368,7 @@ else
     RegWrite, REG_DWORD, % RootKey, % SubKey, HideFileExt, 1
   f_RefreshExplorer()
 }
-return
+Return
 }
 
 f_RefreshExplorer() ;refreshes explorer so you see the results
@@ -359,7 +395,7 @@ Loop, %id%
   if w_CtrID !=
   SendMessage, 0x111, 0x1A220,,, ahk_id %w_CtrID%
 }
-return
+Return
 }
 
 ;end of file extensions function
@@ -387,7 +423,7 @@ Else
 RegWrite, REG_DWORD, HKEY_CURRENT_USER, Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced, Hidden, 2 
 WinGetClass, eh_Class,A 
 If (eh_Class = "#32770" OR A_OSVersion >= "WIN_VISTA") ;if your Windows OS is Vista or newer
-send, {F5} 
+Send, {F5} 
 Else PostMessage, 0x111, 28931,,, A 
 f_RefreshExplorer() ;calls the refresh command agian so you see your results
 }
@@ -431,7 +467,7 @@ coordmode, pixel, Window
 coordmode, mouse, Window
 coordmode, Caret, Window
 
-;This (temporarily) blocks the mouse and keyboard from sending any information, which could interfere with the funcitoning of the script.
+;This (temporarily) blocks the mouse and keyboard from Sending any information, which could interfere with the funcitoning of the script.
 BlockInput, SendAndMouse
 BlockInput, MouseMove
 BlockInput, On
@@ -439,9 +475,9 @@ BlockInput, On
 SetKeyDelay, 0 ;NO DELAY BETWEEN TYPED STUFF! It might actually be best to put this at "1" though.
 
 ;prFocus("timeline") ;maybe not essential i think...
-Sendinput, ^!+k ;shuttle STOP
+SendInput, ^!+k ;shuttle STOP
 sleep 10
-Sendinput, ^!+k ; another shortcut for Shuttle Stop. CTRL ALT SHIFT K. Set this in Premiere's shortcuts panel.
+SendInput, ^!+k ; another shortcut for Shuttle Stop. CTRL ALT SHIFT K. Set this in Premiere's shortcuts panel.
 ;so if the video is playing, this will stop it. Othewise, it can mess up the script.
 sleep 5
 
@@ -449,14 +485,14 @@ sleep 5
 ;;to check if there are lingering variables...
 
 MouseGetPos, xposP, yposP ;------------------stores the cursor's current coordinates at X%xposP% Y%yposP%
-sendinput, {mButton} ;this will MIDDLE CLICK to bring focus to the panel underneath the cursor (the timeline). I forget exactly why, but if you create a nest, and immediately try to apply a preset to it, it doesn't work, because the timeline wasn't in focus...?
+SendInput, {mButton} ;this will MIDDLE CLICK to bring focus to the panel underneath the cursor (the timeline). I forget exactly why, but if you create a nest, and immediately try to apply a preset to it, it doesn't work, because the timeline wasn't in focus...?
 ;but i just tried that and it still didn't work...
 sleep 5
 prFocus("effects") ;brings focus to the effects panel
 ;Alternative -->;;Send ^+!7 ;CTRL SHIFT ALT 7 --- you must set this in premiere's keyboard shortcuts menu to the "effects" panel
 
 sleep 15 ;"sleep" means the script will wait for 20 milliseconds before the next command. This is done to give Premiere some time to load its own things.
-Sendinput, ^b ;CTRL B ------------------------- set in premiere to "select find box"
+SendInput, ^b ;CTRL B ------------------------- set in premiere to "select find box"
 sleep 5
 ;Send ^b ;again... actually this will create the DOODLEDE DOOO noise if you do it twice.
 
@@ -546,8 +582,8 @@ MouseMove, iconX, iconY, 0 ;--------------------moves cursor BACK onto the effec
 sleep 5
 MouseClickDrag, Left, , , %xposP%, %yposP%, 0 ;---clicks the left button down, drags this effect to the cursor's pervious coordinates and releases the left mouse button, which should be above a clip, on the TIMELINE panel.
 sleep 5
-MouseClick, middle, , , 1 ;this returns focus to the panel the cursor is hovering above, WITHOUT selecting anything. great!
-blockinput, MouseMoveOff ;returning mouse movement ability
+MouseClick, middle, , , 1 ;this Returns focus to the panel the cursor is hovering above, WITHOUT selecting anything. great!
+blockinput, MouseMoveOff ;Returning mouse movement ability
 BlockInput, off ;do not comment out or delete this line -- or you won't regain control of the keyboard!! However, CTRL+ALT+DEL will still work if you get stuck!! Cool.
 
 ;remove the following thingy if it makes no sense to you
@@ -583,7 +619,7 @@ prFocus(panel) ;this function allows you to have ONE spot where you define your 
 ; ; ; if (panel = "effect controls")
 ; ; ; {
 	; ; ; Send ^!+5
-	; ; ; return
+	; ; ; Return
 ; ; ; }
 Send ^!+7 ;bring focus to the effects panel, in order to "clear" the current focus on the MAIN monitor
 sleep 12
@@ -598,7 +634,7 @@ else if (panel = "program") ;program monitor
 else if (panel = "source") ;source monitor
 {
 	Send ^!+2
-	;tippy("send ^!+2")
+	;tippy("Send ^!+2")
 }
 else if (panel = "project") ;AKA a "bin" or "folder"
 	Send ^!+1
