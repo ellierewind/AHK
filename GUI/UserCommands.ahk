@@ -126,12 +126,12 @@ else if Pedersen = dir ; Open the directory for this script
 else if Pedersen = host ; Edit host script
 {
     gui_destroy()
-    run, "C:\Users\Ellie\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptFullPath%"
+    run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptFullPath%"
 }
 else if Pedersen = user ; Edit GUI user commands
 {
     gui_destroy()
-    run, "C:\Users\Ellie\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\GUI\UserCommands.ahk"
+    run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\GUI\UserCommands.ahk"
 }
 
 ;-------------------------------------------------------------------------------
