@@ -23,15 +23,15 @@
 ;       ;;; Royal Kludge Keyboard Broken Keys Reassign ;;;
 
 \::
-send `;
+SendInput, `;
 return
 
 +\::
-send `:
+SendInput, `:
 return
 
 +NumpadDiv::
-|
+SendInput,|
 return
 
 +NumpadSub::
@@ -83,6 +83,7 @@ return
 {	
 NumpadSub::#d
 }
+#IfWinNotActive
 return
 
 ;-------------------------------------------------------------------
