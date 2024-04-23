@@ -4,7 +4,7 @@ Download AHK here: https://www.autohotkey.com/download/ahk-v2.exe
 
 Please note that this AHK script is using V1.1. But Downloading AHK-v2 is still recommended since the script is still compatible.
 
-Place these files under C:\Users\%username%\AppData\Roaming\AHK
+Download the whole repo. Afterwards, place these files under C:\Users\username\AppData\Roaming\AHK
 
 Add host.ahk to the startup folder.
 
