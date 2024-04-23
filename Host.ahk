@@ -285,21 +285,21 @@ Return
 
 ;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot 2 - Repair on Slot 5 ;;;
 F20::
-Send, e
-Sleep, 50 ; Adjust the sleep duration as needed (in milliseconds)
-MouseMove, 1777, 588 ; Craft 01
-Sleep, 50 ; Adjust the sleep duration as needed (in milliseconds)
-Send, 2 ; Slot 02
-Sleep, 50
-MouseMove, 1820, 588 ; Craft 02
-Sleep, 50
-Send, 5 ; Slot 05
-Sleep, 50
-MouseMove, 1940, 564 ; Craft Output
-Sleep, 50
-Send, 2 ; Slot 02
-Sleep, 50
-Send, {Escape}
+	Send, e
+	Sleep, 50 ; Adjust the sleep duration as needed (in milliseconds)
+	MouseMove, 1777, 588 ; Craft 01
+	Sleep, 50 ; Adjust the sleep duration as needed (in milliseconds)
+	Send, 2 ; Slot 02
+	Sleep, 50
+	MouseMove, 1820, 588 ; Craft 02
+	Sleep, 50
+	Send, 5 ; Slot 05
+	Sleep, 50
+	MouseMove, 1940, 564 ; Craft Output
+	Sleep, 50
+	Send, 2 ; Slot 02
+	Sleep, 50
+	Send, {Escape}
 Return
 
 ;-------------------------------------------------------------------
