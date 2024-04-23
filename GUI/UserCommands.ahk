@@ -191,98 +191,102 @@ else if Pedersen = pht ; Changes Timezone to PHT
 ;;; MISCELLANEOUS ;;;
 ;-------------------------------------------------------------------------------
 else if Pedersen = ext ; Toggles File Extensions (in Windows Explorer)
-{
-    gui_destroy()
-    f_ToggleFileExt()
-}
+    {
+        gui_destroy()
+        f_ToggleFileExt()
+    }
 else if Pedersen = hid ; Toggles Hidden Files
-{
-
-    gui_destroy()
-    f_ToggleHidden()
-}
+    {
+    
+        gui_destroy()
+        f_ToggleHidden()
+    }
 else if Pedersen = ping ; Ping Google
-{
-    gui_destroy()
-    Run, cmd /K "ping www.google.com"
-}
-else if Pedersen = v0 ; volume set to 0
-{
-    gui_destroy()
-    SoundSet, 0
-}
-else if Pedersen = v10 ; volume set to 10
-{
-    gui_destroy()
-    SoundSet, 10
-}
-else if Pedersen = v15 ; volume set to 15
-{
-    gui_destroy()
-    SoundSet, 15
-}
-else if Pedersen = v20 ; volume set to 20
-{
-    gui_destroy()
-    SoundSet, 20
-}
-else if Pedersen = v25 ; volume set to 25
-{
-    gui_destroy()
-    SoundSet, 25
-}
-else if Pedersen = v30 ; volume set to 30
-{
-    gui_destroy()
-    SoundSet, 30
-}
-else if Pedersen = v40 ; volume set to 40
-{
-    gui_destroy()
-    SoundSet, 40
-}
-else if Pedersen = v45 ; volume set to 45
-{
-    gui_destroy()
-    SoundSet, 45
-}
-else if Pedersen = v50 ; volume set to 50
-{
-    gui_destroy()
-    SoundSet, 50
-}
-else if Pedersen = v55 ; volume set to 55
-{
-    gui_destroy()
-    SoundSet, 55
-}
-else if Pedersen = v60 ; volume set to 60
-{
-    gui_destroy()
-    SoundSet, 60
-}
-else if Pedersen = v75 ; volume set to 75
-{
-    gui_destroy()
-    SoundSet, 75
-}
-else if Pedersen = v80 ; volume set to 80
-{
-    gui_destroy()
-    SoundSet, 80
-}
-else if Pedersen = v90 ; volume set to 90
-{
-    gui_destroy()
-    SoundSet, 90
-}
-else if Pedersen = v100 ; volume set to 100
-{
-    gui_destroy()
-    SoundSet, 100
-}
+    {
+        gui_destroy()
+        Run, cmd /K "ping www.google.com"
+    }
 else if Pedersen = ? ; Tooltip with list of commands
-{
-    GuiControl,, Pedersen, ; Clear the input box
-    Gosub, gui_commandlibrary
-}
+    {
+        GuiControl,, Pedersen, ; Clear the input box
+        Gosub, gui_commandlibrary
+    }    
+
+;-------------------------------------------------------------------------------
+;;; Volume Set ;;;
+;-------------------------------------------------------------------------------
+else if Pedersen = v0 ; volume set to 0
+        {
+            gui_destroy()
+            SoundSet, 0
+        }
+else if Pedersen = v10 ; volume set to 10
+        {
+            gui_destroy()
+            SoundSet, 10
+        }
+else if Pedersen = v15 ; volume set to 15
+        {
+            gui_destroy()
+            SoundSet, 15
+        }
+else if Pedersen = v20 ; volume set to 20
+        {
+            gui_destroy()
+            SoundSet, 20
+        }
+else if Pedersen = v25 ; volume set to 25
+        {
+            gui_destroy()
+            SoundSet, 25
+        }
+else if Pedersen = v30 ; volume set to 30
+        {
+            gui_destroy()
+            SoundSet, 30
+        }
+else if Pedersen = v40 ; volume set to 40
+        {
+            gui_destroy()
+            SoundSet, 40
+        }
+else if Pedersen = v45 ; volume set to 45
+        {
+            gui_destroy()
+            SoundSet, 45
+        }
+else if Pedersen = v50 ; volume set to 50
+        {
+            gui_destroy()
+            SoundSet, 50
+        }
+else if Pedersen = v55 ; volume set to 55
+        {
+            gui_destroy()
+            SoundSet, 55
+        }
+else if Pedersen = v60 ; volume set to 60
+        {
+            gui_destroy()
+            SoundSet, 60
+        }
+else if Pedersen = v75 ; volume set to 75
+        {
+            gui_destroy()
+            SoundSet, 75
+        }
+else if Pedersen = v80 ; volume set to 80
+        {
+            gui_destroy()
+            SoundSet, 80
+        }
+else if Pedersen = v90 ; volume set to 90
+        {
+            gui_destroy()
+            SoundSet, 90
+        }
+else if Pedersen = v100 ; volume set to 100
+        {
+            gui_destroy()
+            SoundSet, 100
+        }
