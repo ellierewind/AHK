@@ -3,7 +3,7 @@
 ;;;;------------------------------------------------------------------------------------------
 
 ; General settings
-#Include %A_ScriptDir%\Miscellaneous\miscellaneous.ahk
+#Include %A_ScriptDir%\Miscellaneous\Miscellaneous.ahk
 
 ; Load the GUI code
 #Include %A_ScriptDir%\GUI\GUI.ahk
@@ -18,10 +18,6 @@
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
-
-::~1::
-Send Hi %Clipboard%, this is Ellie. How are you today? Hi Amr, this is Ellie.
-return
 
 
 ;-------------------------------------------------------------------
@@ -209,6 +205,24 @@ Return
 
 ;-------------------------------------------------------------------
 
+;       ;;; Insert Date and Time with Windows Key + W and Windows Key + Shift + W ;;;
+
+#w:: ; Windows + W
+FormatTime, CurrentDateTime,, yyyy-MM-dd - hh;mm tt
+Send %CurrentDateTime%
+Return
+
++#w:: ; Windows + Shift + W
+FormatTime, CurrentTime,, hh;mm tt
+Send %CurrentTime%
+Return
+
+;-------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------
+
 ;       ;;; Replace "Insert" key with Paste (Ctrl + V). Use [Insert] ;;;
 
 Ins::^v
@@ -228,24 +242,6 @@ Return
 
 #IfWinActive ahk_class CabinetWClass
 F1::
-Return
-
-;-------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------
-
-;       ;;; Insert Date and Time with Windows Key + W and Windows Key + Shift + W ;;;
-
-#w:: ; Windows + W
-FormatTime, CurrentDateTime,, yyyy-MM-dd - hh;mm tt
-Send %CurrentDateTime%
-Return
-
-+#w:: ; Windows + Shift + W
-FormatTime, CurrentTime,, hh;mm tt
-Send %CurrentTime%
 Return
 
 ;-------------------------------------------------------------------
