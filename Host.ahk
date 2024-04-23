@@ -272,7 +272,7 @@ Return
     SendInput, ^{Numpad8}
   }
 
-#IfWinActive ; Optional: End of restriction
+#IfWinActive ; End of restriction
 
 Return
 
@@ -338,9 +338,9 @@ Return
 ;       ;;; Car Sale Sim ;;;
 F16::
 	Click, 3189, 1401    ; Click on the first specific position
-	Sleep, 20           ; Wait for 50 milliseconds
-	Click, 2264, 393    ; Click on the second specific position
-	Sleep, 20           ; Wait for 50 milliseconds
+	Sleep, 20            ; Wait for 50 milliseconds
+	Click, 2264, 393     ; Click on the second specific position
+	Sleep, 20            ; Wait for 50 milliseconds
 	Click, 1282, 1219    ; Click on the third specific position
 	Sleep, 20    
 Return
