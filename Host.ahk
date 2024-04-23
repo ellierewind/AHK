@@ -258,7 +258,7 @@ Return
 
 #IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to specific program
 
-#M:: ; Win+M
+':: ; Win+M
 
   ; Send Numpad9 x times - Zooms in using MPC-HC
   Loop, 12
