@@ -70,10 +70,10 @@ else if Pedersen = japeng ; Translate Japanese to English
     gui_search_title = Japanese to English
     gui_search("https://translate.google.com/#ja/en/REPLACEME")
 }
-else if Pedersen = qwe ; 18 Percent Higher
+else if Pedersen = qwe ; What time was x ago
 {
-    gui_search_title = 18 Percent Higher
-    gui_search("https://www.google.com/search?q=REPLACEME+x+118%25")
+    gui_search_title = What time was x
+    gui_search("https://www.google.com/search?q=what+time+was+REPLACEME+ago")
 }
 
 ;-------------------------------------------------------------------------------
