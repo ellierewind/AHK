@@ -1,6 +1,6 @@
 # AHK
 
-Download AHK here: https://www.autohotkey.com/download/ahk-v2.exe
+Download AHK here: https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.12/AutoHotkey_2.0.12_setup.exe
 
 Please note that this AHK script is using V1.1. But Downloading AHK-v2 is still recommended since the script is still compatible.
 
