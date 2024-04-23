@@ -1,1 +1,0 @@
-tzutil /s "W. Australia Standard Time"
