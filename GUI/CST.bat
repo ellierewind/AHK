@@ -1,0 +1,1 @@
+tzutil /s "Central Standard Time"
