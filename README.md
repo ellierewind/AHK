@@ -17,3 +17,5 @@ Startup folder can be found here: C:\ProgramData\Microsoft\Windows\Start Menu\Pr
 or
 
 shell:startup
+
+Once you run the script, it'll show a prompt for the first time you use it, and it'll ask you to download AHK v1.1.37.02. Click yes.
