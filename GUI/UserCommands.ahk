@@ -186,6 +186,11 @@ else if Pedersen = pht ; Changes Timezone to PHT
         gui_destroy()
         Run %A_ScriptDir%\Miscellaneous\pht.bat
     }
+else if Pedersen = git ; Open GitHub Desktop
+    {
+        gui_destroy()
+        Run C:\Users\%A_UserName%\AppData\Local\GitHubDesktop\GitHubDesktop.exe
+    }
 
 ;-------------------------------------------------------------------------------
 ;;; MISCELLANEOUS ;;;
