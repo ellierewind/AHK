@@ -15,7 +15,7 @@ Return
 ;                            ;;;<Pre-requisites>;;;                                                ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
-; For the preset() function to work, you MUST go into Premiere's Keyboard Shortcuts panel,
+; For the preset() function [Created by TaranVH] to work, you MUST go into Premiere's Keyboard Shortcuts panel,
 ; find the following commands, and add these keyboard shortcut assignments to them:
 ; 
 ; Select Find Box ------- CTRL B
