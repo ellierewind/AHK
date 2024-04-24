@@ -169,22 +169,22 @@ else if Pedersen = rec%A_Space% ; Opens Recycle Bin
 else if Pedersen = cst ; Changes Timezone to CST
     {
         gui_destroy()
-        run, %A_ScriptDir%\Miscellaneous\cst.bat
+        run, %A_ScriptDir%\Settings\cst.bat
     }
 else if Pedersen = est ; Changes Timezone to EST
     {
         gui_destroy()
-        Run %A_ScriptDir%\Miscellaneous\est.bat
+        Run %A_ScriptDir%\Settings\est.bat
     }
 else if Pedersen = pst ; Changes Timezone to PST
     {
         gui_destroy()
-        Run %A_ScriptDir%\Miscellaneous\pst.bat
+        Run %A_ScriptDir%\Settings\pst.bat
     }
 else if Pedersen = pht ; Changes Timezone to PHT
     {
         gui_destroy()
-        Run %A_ScriptDir%\Miscellaneous\pht.bat
+        Run %A_ScriptDir%\Settings\pht.bat
     }
 else if Pedersen = git ; Open GitHub Desktop
     {
