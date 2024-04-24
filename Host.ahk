@@ -1,7 +1,6 @@
-﻿;;;;------------------------------------------------------------------------------------------------------------------
+﻿;;;;------------------------------------------------------------------------------------------
 ;                            ;;;<Ignore This Part>;;;                                        ;
-;;;;------------------------------------------------------------------------------------------------------------------
-
+;;;;------------------------------------------------------------------------------------------
 ; General settings
 #Include %A_ScriptDir%\Settings\General.ahk
 
@@ -12,9 +11,29 @@
 Reload
 Return
 
-;;;;------------------------------------------------------------------------------------------------------------------
+;;;;------------------------------------------------------------------------------------------
 ;                            ;;;<End of Ignore This Part>;;;                                 ;
-;;;;------------------------------------------------------------------------------------------------------------------
+;;;;------------------------------------------------------------------------------------------
+
+
+
+;;;;------------------------------------------------------------------------------------------
+;                            ;;;<Pre-requisites>;;;                                         ;
+;;;;------------------------------------------------------------------------------------------
+
+; For the preset() function to work, you MUST go into Premiere's Keyboard Shortcuts panel,
+; find the following commands, and add these keyboard shortcut assignments to them:
+; 
+; Select Find Box ------- CTRL B
+; Shuttle Stop ---------- CTRL ALT SHIFT K
+; ctrl alt shift 3      Application > Window > Timeline (default is shift 3)
+; ctrl alt shift 1      Application > Window > Project  (This sets the focus onto a BIN.) (default is SHIFT 1)
+; ctrl alt shift 4      Application > Window > program monitor (Default is SHIFT 4)
+; ctrl alt shift 5      Application > Window > Effect Controls (Default is SHIFT 5)
+; ctrl alt shift 7      Application > Window > Effects   (NOT the Effect Controls panel) (Default is SHIFT 7)
+;
+; Alternatively, you can add your pre-made keyboard shortcuts to Adobe Premiere.
+
 
 
 ;__________________________________________________________________________________________;
@@ -22,9 +41,6 @@ Return
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
-F1::
-preset(Multiband Compressor Preset)
-Return
 
 ;-------------------------------------------------------------------------------------------------------------------
 
@@ -350,10 +366,6 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 
-
-
-
-
 ;_________________________________________________________________________________________________________________________________;
 ;                                                                                                                                 ;
 ;                                              ;;; Functions ;;;                                                                  ;    
@@ -534,14 +546,11 @@ loop
 		sleep 200
 		;tooltip,
 		GOTO theEnding
-		;lol, are you triggered by this GOTO? lolol lololol
 		}
 	}
 sleep 1
 tooltip,
 }
-
-;yeah, I've seen this go all the way up to "8," which is 264 milliseconds
 
 MouseMove, %A_CaretX%, %A_CaretY%, 0
 sleep 5
