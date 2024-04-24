@@ -21,7 +21,9 @@ shell:startup
 Once you run the script, it'll show a prompt for the first time you use it, and it'll ask you to download AHK v1.1.37.02. Click yes.
 
 
-Credits:
+#Credits
 https://github.com/plul/Public-AutoHotKey-Scripts
+
 https://github.com/TaranVH/2nd-keyboard
+
 https://github.com/EposVox/WindowsMods
