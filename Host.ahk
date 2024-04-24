@@ -22,7 +22,9 @@ Return
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
-
+F1::
+preset(Multiband Compressor Preset)
+Return
 
 ;-------------------------------------------------------------------------------------------------------------------
 
@@ -626,12 +628,6 @@ theEnding:
 
 prFocus(panel) ;this function allows you to have ONE spot where you define your personal shortcuts that "focus" panels in premiere.
 {
-;panel := """" . panel . """" ;this adds quotation marks around the parameter so that it works as a string, not a variable.
-; ; ; if (panel = "effect controls")
-; ; ; {
-	; ; ; Send ^!+5
-	; ; ; Return
-; ; ; }
 Send ^!+7 ;bring focus to the effects panel, in order to "clear" the current focus on the MAIN monitor
 sleep 12
 Send ^!+7 ;do it AGAIN, just in case a panel was full-screened... it would only have exited full screen, and not switched to the effects panel as it should have.
