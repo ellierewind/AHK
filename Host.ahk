@@ -1,6 +1,7 @@
 ﻿;;;;-----------------------------------------------------------------------------------------------;
 ;                            ;;;<Ignore This Part>;;;                                              ;
 ;;;;-----------------------------------------------------------------------------------------------;
+
 ; General settings
 #Include %A_ScriptDir%\Settings\General.ahk
 
@@ -11,75 +12,69 @@
 Reload
 Return
 
-
-
 ;;;;-----------------------------------------------------------------------------------------------;
 ;                            ;;;<Pre-requisites>;;;                                                ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
-; For the preset() function [Created by TaranVH] to work, you MUST go into Premiere's Keyboard Shortcuts panel,
+; For the preset() function [Created by TaranVH] to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel,
 ; find the following commands, and add these keyboard shortcut assignments to them:
 ; 
-; Select Find Box ------- CTRL B
-; Shuttle Stop ---------- CTRL ALT SHIFT K
-; ctrl alt shift 3      Application > Window > Timeline (default is shift 3)
-; ctrl alt shift 1      Application > Window > Project  (This sets the focus onto a BIN.) (default is SHIFT 1)
-; ctrl alt shift 4      Application > Window > program monitor (Default is SHIFT 4)
-; ctrl alt shift 5      Application > Window > Effect Controls (Default is SHIFT 5)
-; ctrl alt shift 7      Application > Window > Effects   (NOT the Effect Controls panel) (Default is SHIFT 7)
+; Ctrl +               B      Application > Select Find Box
+; Ctrl + Alt + Shift + K      Application > Shuttle Stop
+; Ctrl + Alt + Shift + 3      Application > Window > Timeline        (Default is Shift + 3)
+; Ctrl + Alt + Shift + 1      Application > Window > Project         (Default is Shift + 1) (This sets the focus onto a BIN) 
+; Ctrl + Alt + Shift + 4      Application > Window > Program Monitor (Default is Shift + 4)
+; Ctrl + Alt + Shift + 5      Application > Window > Effect Controls (Default is Shift + 5)
+; Ctrl + Alt + Shift + 7      Application > Window > Effects         (Default is Shift + 7) (NOT the Effect Controls panel) 
 ;
 ; Alternatively, you can add your pre-made keyboard shortcuts to Adobe Premiere.
-
 
 ;__________________________________________________________________________________________;
 ;                                                                                          ;
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
+;-------------------------------------------------------------------------------------------------------------------
+
+;       ;;; G604 Assignments ;;;
+
 F24 & WheelUp::
-Send {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
+SendInput, {Volume_Up} ; F4 + Scroll Wheel Up as Volume up
 Return
 
 F24 & WheelDown::
-Send {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
+SendInput, {Volume_Down} ; F24 + Scroll Wheel Down as Volume down
 Return
 
 F24 & Left::
-SendInput {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}      ; switch to next virtual desktop
+VirtualDesktop("Left")
 Return
 
 F24 & Right::
-SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to previous virtual desktop
+VirtualDesktop("Right")
 Return
 
+
+
 F23::
-SendInput {LButton Down} ;Press left mouse button
-
-KeyWait F23 ;wait for release of "a"
-
-SendInput {LButton Up} ;release Left Mouse button
+MouseClicker("LButton","F23")
 Return
 
 F22::
-SendInput {RButton Down} ;Press left mouse button
-
-KeyWait F22 ;wait for release of "a"
-
-SendInput {RButton Up} ;release Left Mouse button
+MouseClicker("RButton","F22")
 Return
 
-F24 & F23::
-    While GetKeyState("F24", "P") && GetKeyState("F23", "P") {
-        Click
-    }
-return
 
+
+F24 & F23::
+MouseAutoClicker("Left","F24","F23")
+return
 
 F24 & F22::
-While GetKeyState("F24", "P") && GetKeyState("F22", "P") {
-	Click, Right
-}
+MouseAutoClicker("Right","F24","F22")
 return
+
+;-------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -141,8 +136,8 @@ Return
 
 ;       ;;; Adds "Windows Key" + Scroll Up/Down as a modifier for Volume Control ;;;
 
-#WheelUp::Send {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
-#WheelDown::Send {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
+#WheelUp::SendInput, {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
+#WheelDown::SendInput, {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -154,11 +149,11 @@ Return
 ;       ;;; Switch Virtual Desktops. Use Windows Key + Q and Windows Key + E ;;;
 
 #q::
-SendInput {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}      ; switch to previous virtual desktop
+VirtualDesktop("Left")
 Return
 
 #e::
-SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to next virtual desktop
+VirtualDesktop("Right")
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -427,6 +422,36 @@ Return
 ;                                              ;;; Functions ;;;                                                                  ;    
 ;_________________________________________________________________________________________________________________________________;
 
+
+
+;;;;-----------------------------------------------------------------------------------------------;
+;      ;;; Ellie's Functions ;;;                                                                   ;
+;;;;-----------------------------------------------------------------------------------------------;
+
+VirtualDesktop(LeftRight)
+{
+SendInput, {LWin down}{LCtrl down}{%LeftRight% down}{Lwin up}{LCtrl up}{%LeftRight% up}      ; switch virtual desktop
+}
+
+
+
+MouseClicker(LRButton,Key)
+{
+SendInput {%LRButton% Down} ;Press Left Mouse button
+KeyWait %Key% ; Wait for release
+SendInput {%LRButton% Up} ; Release Left Mouse button
+}
+
+
+
+MouseAutoClicker(LeftRight, Key1, Key2)
+{
+While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
+	{
+   	 Click, %LeftRight%
+	 Sleep 1
+	}
+}
 
 ;;;;-----------------------------------------------------------------------------------------------;
 ;      ;;; Toggles File Extensions Function (in Windows Explorer) ;;;                              ;
