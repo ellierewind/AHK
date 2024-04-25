@@ -3,13 +3,15 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 Menu, Tray, Icon, shell32.dll, 26 ;changes the taskbar icon to something
 
+SetBatchLines, -1
+SetMouseDelay, 0
+
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 
 #InstallKeybdHook
 #InstallMouseHook ;<--You'll want to use this if you have scripts that use the mouse.
 #UseHook On
 #SingleInstance force ;only one instance of this script may run at a time!
-#MaxHotkeysPerInterval 2000
 
 SetCapsLockState, AlwaysOff
 					

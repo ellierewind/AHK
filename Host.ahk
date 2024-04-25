@@ -11,8 +11,7 @@
 Reload
 Return
 
-SetBatchLines, -1
-SetMouseDelay, 0
+
 
 ;;;;-----------------------------------------------------------------------------------------------;
 ;                            ;;;<Pre-requisites>;;;                                                ;
@@ -54,23 +53,33 @@ SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; 
 Return
 
 F23::
-SendInput, {LButton}
-Return
-F22::
-SendInput, {RButton}
+SendInput {LButton Down} ;Press left mouse button
+
+KeyWait F23 ;wait for release of "a"
+
+SendInput {LButton Up} ;release Left Mouse button
 Return
 
-F24 & F23:: ; Activates the autoclicker when F23 is held down
-  Click, down  ; Simulates holding down the left mouse button
-  while (GetKeyState("F23", "P")) {  ; Loops as long as F23 is held
-    Click  ; Performs a left click
-  }
-  Click, up  ; Simulates releasing the left mouse button
+F22::
+SendInput {RButton Down} ;Press left mouse button
+
+KeyWait F22 ;wait for release of "a"
+
+SendInput {RButton Up} ;release Left Mouse button
+Return
+
+F24 & F23::
+    While GetKeyState("F24", "P") && GetKeyState("F23", "P") {
+        Click
+    }
 return
 
+
 F24 & F22::
-MsgBox, Test Hello!
-Return
+While GetKeyState("F24", "P") && GetKeyState("F22", "P") {
+	Click, Right
+}
+return
 
 
 
@@ -84,6 +93,10 @@ Return
 
 +\::
 SendInput, `:
+Return
+
+NumpadDiv::
+SendInput,\
 Return
 
 +NumpadDiv::
