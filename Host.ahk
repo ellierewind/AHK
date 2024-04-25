@@ -21,11 +21,11 @@ Return
 ; 
 ; Ctrl +               B      Application > Select Find Box
 ; Ctrl + Alt + Shift + K      Application > Shuttle Stop
-; Ctrl + Alt + Shift + 3      Application > Window > Timeline        (Default is Shift + 3)
 ; Ctrl + Alt + Shift + 1      Application > Window > Project         (Default is Shift + 1) (This sets the focus onto a BIN) 
+; Ctrl + Alt + Shift + 3      Application > Window > Timeline        (Default is Shift + 3)
 ; Ctrl + Alt + Shift + 4      Application > Window > Program Monitor (Default is Shift + 4)
 ; Ctrl + Alt + Shift + 5      Application > Window > Effect Controls (Default is Shift + 5)
-; Ctrl + Alt + Shift + 7      Application > Window > Effects         (Default is Shift + 7) (NOT the Effect Controls panel) 
+; Ctrl + Alt + Shift + 7      Application > Window > Effects         (Default is Shift + 7)
 ;
 ; Alternatively, you can add your pre-made keyboard shortcuts to Adobe Premiere.
 
@@ -382,7 +382,7 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 ;       ;;; Minecraft - Enchant 27 Books ;;;
-;F18::
+F18::
 Send, {Shift down}  ; Hold Shift key down
 Sleep, 100          ; Wait for 100 milliseconds
 
