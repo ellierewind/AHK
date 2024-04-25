@@ -11,6 +11,9 @@
 Reload
 Return
 
+SetBatchLines, -1
+SetMouseDelay, 0
+
 ;;;;-----------------------------------------------------------------------------------------------;
 ;                            ;;;<Pre-requisites>;;;                                                ;
 ;;;;-----------------------------------------------------------------------------------------------;
@@ -33,6 +36,41 @@ Return
 ;                                                                                          ;
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
+
+F24 & WheelUp::
+Send {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
+Return
+
+F24 & WheelDown::
+Send {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
+Return
+
+F24 & Left::
+SendInput {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}      ; switch to next virtual desktop
+Return
+
+F24 & Right::
+SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to previous virtual desktop
+Return
+
+F23::
+SendInput, {LButton}
+Return
+F22::
+SendInput, {RButton}
+Return
+
+F24 & F23:: ; Activates the autoclicker when F23 is held down
+  Click, down  ; Simulates holding down the left mouse button
+  while (GetKeyState("F23", "P")) {  ; Loops as long as F23 is held
+    Click  ; Performs a left click
+  }
+  Click, up  ; Simulates releasing the left mouse button
+return
+
+F24 & F22::
+MsgBox, Test Hello!
+Return
 
 
 
@@ -102,12 +140,12 @@ Return
 
 ;       ;;; Switch Virtual Desktops. Use Windows Key + Q and Windows Key + E ;;;
 
-#e::
-SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to previous virtual desktop
+#q::
+SendInput {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}      ; switch to previous virtual desktop
 Return
 
-#q::
-SendInput {LWin down}{LCtrl down}{Left down}{Lwin up}{LCtrl up}{Left up}      ; switch to next virtual desktop
+#e::
+SendInput {LWin down}{LCtrl down}{Right down}{LWin up}{LCtrl up}{Right up}    ; switch to next virtual desktop
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -336,7 +374,7 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 ;       ;;; Minecraft - Enchant 27 Books ;;;
-;F24::
+;F18::
 Send, {Shift down}  ; Hold Shift key down
 Sleep, 100          ; Wait for 100 milliseconds
 
