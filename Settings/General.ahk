@@ -8,6 +8,9 @@ SetMouseDelay, 0
 
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 
+CoordMode, Mouse, screen
+CoordMode, Pixel, screen
+
 #InstallKeybdHook
 #InstallMouseHook ;<--You'll want to use this if you have scripts that use the mouse.
 #UseHook On
