@@ -197,6 +197,20 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
+;       ;;; Changes Tab (in Google Chrome) ;;;
+
+#IfWinActive ahk_exe chrome.exe
+	F1::^+Tab
+	F2::^Tab
+#IfWinActive
+	Return
+
+;-------------------------------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------------------------------
+
 ;       ;;; Toggles File Extensions (in Windows Explorer) ;;;
 
 #y:: ;Windows + Y
@@ -250,14 +264,11 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Disables F1 key in Chrome and File Explorer ;;;
-
-#IfWinActive ahk_exe chrome.exe
-F1::
-Return
+;       ;;; Disables F1 key in File Explorer ;;;
 
 #IfWinActive ahk_class CabinetWClass
 F1::
+#IfWinActive
 Return
 
 ;-------------------------------------------------------------------------------------------
