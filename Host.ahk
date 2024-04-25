@@ -357,7 +357,7 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 ;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot 2 - Repair on Slot 5 ;;;
-F20::
+F15::
 	Send, e
 	Sleep, 50 ; Adjust the sleep duration as needed (in milliseconds)
 	MouseMove, 1777, 588 ; Craft 01
