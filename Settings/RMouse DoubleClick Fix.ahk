@@ -3,15 +3,6 @@ if ErrorLevel
 	minDelay := 100  ; Default setting.
 
 #NoTrayIcon  ; Hide initial icon.
-Menu Tray, Icon, %A_WinDir%\System32\main.cpl  ; Set icon.
-Menu Tray, Icon  ; Show icon.
-Menu Tray, NoStandard
-Menu Tray, Add, &Configure, TrayConfigure
-Menu Tray, Add, E&xit, TrayExit
-Menu Tray, Default, &Configure
-Menu Tray, Click, 1  ; Single-click to configure.
-Menu Tray, Tip, Mouse Debouncer
-
 ~RButton::
 ; Do nothing at all -- click has not been blocked.  This hotkey has
 ; already achieved its purpose by causing A_PriorHotkey etc to be set.
