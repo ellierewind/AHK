@@ -29,5 +29,3 @@ Once you run the script, it'll show a prompt for the first time you use it, and 
 https://github.com/plul/Public-AutoHotKey-Scripts
 
 https://github.com/TaranVH/2nd-keyboard
-
-https://github.com/EposVox/WindowsMods
