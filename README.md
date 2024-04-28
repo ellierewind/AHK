@@ -2,20 +2,20 @@
 
 Ellie's AHK Script!
 
-Host.ahk has all the main scripts you execute using keyboard keybinds.
+`Host.ahk` has all the main scripts you execute using keyboard keybinds.
 
-GUI/UserCommands.ahk has the scripts you execute using the CapsLock menu.
+`UserCommands.ahk` has the scripts you execute using the CapsLock menu.
 
-Premiere - Right click timeline to move playhead.ahk is a standalone script.
+`Premiere - Right click timeline to move playhead.ahk` is a standalone script.
 
-General.ahk and GUI.ahk can be ignored. Please do not change or move anything in those files if you don't know what you're doing.
+`General.ahk` and `GUI.ahk` can be ignored. Please do not change or move anything in those files if you don't know what you're doing.
 
 
 # Features
 
-### CapsLock GUI
+### CapsLock Menu
 
-`CapsLock` becomes a small GUI that allows you to run any normal AutoHotkey command or block of code by typing a name for the command you want to run.
+`CapsLock` becomes a Menu or GUI that allows you to run any normal AutoHotkey command or block of code by typing a name for the command you want to run.
 
 Normal `CapsLock` functionality is preserved, and can be toggled by `Alt + CapsLock`.
 
