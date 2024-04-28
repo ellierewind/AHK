@@ -48,7 +48,7 @@ Using `F1` and `F2` lets you go to the previous or next tab.
 
 Using `Windows + Y` toggles File Extensions in Windows Explorer. `Windows + H` toggles hidden files.
 
-You can also use the `CapsLock` GUI by typing "ext" for File Extensions and "hid" for Hidden Files.
+You can also use the `CapsLock` menu by typing "ext" for File Extensions and "hid" for Hidden Files.
 
 ### Easily Insert Date and Time
 
@@ -63,6 +63,18 @@ You can also use the `CapsLock` GUI by typing "ext" for File Extensions and "hid
 ### Disabling F1 Key in File Explorer and Google Chrome
 
 Prevents you from opening the help and center page accidentally.
+
+### Easily Change Timezones
+
+Using the `CapsLock` menu, you can type in "CST" for US Central Time. "PST" for US Pacific Time. "EST" for US Eastern Time.
+
+### Premiere Pro  - Easy Presets
+
+Easily add effects presets in Premiere Pro using the `preset()` function. This is function/script is from TaranVH. Please click on the credits below to learn more.
+
+### Insanely Fast Auto Clicker
+
+By pressing and holding down the hotkey, it will click as fast as your PC can handle. Up to 700 clicks per second.
 
 # Installation
 
