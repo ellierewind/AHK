@@ -19,6 +19,8 @@ Ellie's AHK Script!
 
 Normal `CapsLock` functionality is preserved, and can be toggled by `Alt + CapsLock`.
 
+This functionality was created by [plul](https://github.com/plul/Public-AutoHotKey-Scripts).
+
 
 ### Middle Mouse Button moves up a folder in Explorer
 
@@ -72,6 +74,8 @@ Using the `CapsLock` menu, you can type in `CST` for US Central Time. `PST` for 
 
 Easily add effects presets in Premiere Pro using the `preset()` function. This is function/script is from TaranVH. Please click on the credits below to learn more.
 
+This functionality was created by [TaranVH](https://github.com/TaranVH/2nd-keyboard)
+
 ### Insanely Fast Auto Clicker
 
 By pressing and holding down the hotkey, it will click as fast as your PC can handle. Up to 700 clicks per second.
@@ -99,7 +103,7 @@ Startup folder can be found here: "C:\ProgramData\Microsoft\Windows\Start Menu\P
 Once you run the script, it'll show a prompt for the first time you use it, and it'll ask you to download AHK v1.1.37.02. Click yes.
 
 # Prerequisites
- For the preset() function [Created by TaranVH] to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel, find the following commands, and add these keyboard shortcut assignments to them:
+ For the preset() function [Created by [TaranVH](https://github.com/TaranVH/2nd-keyboard)] to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel, find the following commands, and add these keyboard shortcut assignments to them:
  
  >Ctrl +               B  =      Application > Select Find Box
 
