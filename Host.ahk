@@ -16,7 +16,7 @@ Return
 Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 
 ;;;;-----------------------------------------------------------------------------------------------;
-;                            ;;;<Pre-requisites>;;;                                                ;
+;                            ;;;<Prerequisites>;;;                                                ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
 ; For the preset() function [Created by TaranVH] to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel,
