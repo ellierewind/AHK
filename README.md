@@ -90,6 +90,27 @@ Startup folder can be found here: "C:\ProgramData\Microsoft\Windows\Start Menu\P
 
 Once you run the script, it'll show a prompt for the first time you use it, and it'll ask you to download AHK v1.1.37.02. Click yes.
 
+# Prerequisites
+ For the preset() function [Created by TaranVH] to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel, find the following commands, and add these keyboard shortcut assignments to them:
+ 
+ >Ctrl +               B  =      Application > Select Find Box
+
+ >Ctrl + Alt + Shift + K =      Application > Shuttle Stop
+
+ >Ctrl + Alt + Shift + 1 =      Application > Window > Project         (Default is Shift + 1) 
+(This sets the focus onto a BIN) 
+
+ >Ctrl + Alt + Shift + 3 =      Application > Window > Timeline        (Default is Shift + 3)
+
+ >Ctrl + Alt + Shift + 4 =      Application > Window > Program Monitor (Default is Shift + 4)
+
+ >Ctrl + Alt + Shift + 5 =      Application > Window > Effect Controls (Default is Shift + 5)
+
+ >Ctrl + Alt + Shift + 7 =      Application > Window > Effects         (Default is Shift + 7)
+ 
+
+ Alternatively, you can add your pre-made keyboard shortcuts to Adobe Premiere.
+
 # Credits
 
 https://github.com/plul/Public-AutoHotKey-Scripts
