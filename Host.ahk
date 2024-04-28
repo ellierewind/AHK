@@ -37,7 +37,9 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
-;-------------------------------------------------------------------------------------------------------------------
+
+
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; G604 Assignments ;;;
 
@@ -328,7 +330,7 @@ Return
 
 ;       ;;; Zooms in and Pans up in MPC-HC with Windows Key + M ;;;
 
-#IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to specific program
+#IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to MPC-HC
 
 ':: ; Win+M
 
@@ -349,6 +351,16 @@ Return
 Return
 
 ;-------------------------------------------------------------------------------------------
+
+;-------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Ctrl Alt S = Select Files - Add Files Names to text file ;;;
+
+^!s:: ; Ctrl + Alt + s
+SelectFilesText()
+Return
+
+;-------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -440,9 +452,9 @@ SendInput, {LWin down}{LCtrl down}{%LeftRight% down}{Lwin up}{LCtrl up}{%LeftRig
 
 MouseClicker(LRButton,Key)
 {
-SendInput {%LRButton% Down} ;Press Left Mouse button
+SendInput {%LRButton% Down} ;Press Left or Right Mouse button
 KeyWait %Key% ; Wait for release
-SendInput {%LRButton% Up} ; Release Left Mouse button
+SendInput {%LRButton% Up} ; Release Left or Right Mouse button
 }
 
 
@@ -482,6 +494,8 @@ else
 }
 Return
 }
+
+
 
 f_RefreshExplorer() ;refreshes explorer so you see the results
 {
@@ -541,8 +555,45 @@ f_RefreshExplorer() ;calls the refresh command agian so you see your results
 ;-------------------------------------------------------------------------------------------
 
 
+;;;;-----------------------------------------------------------------------------------------------;
+;      ;;; Ctrl Alt S = Select Files - Add Files Names to text file ;;;                                 ;
+;;;;-----------------------------------------------------------------------------------------------;
 
 
+;-------------------------------------------------------------------------------------------
+
+SelectFilesText()
+{
+ClipSaved := ClipboardAll ; Save the current clipboard content
+Clipboard := "" ; Empty the clipboard
+
+Send, ^c ; Copy the selected files
+ClipWait, 1 ; Wait for the clipboard to contain data
+
+if (!ErrorLevel) ; If files were copied to the clipboard
+{
+    ; Get the directory of the first selected file
+    Loop, parse, Clipboard, `n, `r
+    {
+        filePath := A_LoopField ; Get the full path of the file
+        SplitPath, filePath, name, dir, ext, name_no_ext, drive ; Split the path into components
+        filePath := dir . "\fileList.txt" ; Create the path of the text file
+        break ; We only need the directory of the first file
+    }
+
+    Loop, parse, Clipboard, `n, `r ; Loop through each file
+    {
+        FileAppend, %A_LoopField%`n, %filePath% ; Append the file name to the text file
+    }
+}
+
+Clipboard := ClipSaved ; Restore the original clipboard content
+
+Return
+}
+;end
+
+;-------------------------------------------------------------------------------------------
 
 
 ;#If GetKeyState("ScrollLock", "T") ; This makes it so that everything after this line only works when the [ScrollLock] is on
