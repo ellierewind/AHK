@@ -24,7 +24,7 @@ Normal `CapsLock` functionality is preserved, and can be toggled by `Alt + CapsL
 
 If you press on the `Middle Mouse Button`, you'll move up a folder in Windows Files explorer. This also works on "Open In" or Context Explorer windows.
 
-### Windows Key + MouseScroll - Volume Control
+### Windows + MouseScroll - Volume Control
 
 If you hold down the Windows Key and use the scroll wheel of your mouse, you'll be able to control the volume of your PC.
 
@@ -36,7 +36,7 @@ By Using `Windows + Q` and `Windows + E`, you'll be able to switch through virtu
 
 By pressing `NumpadSubtract`, you'll be able to hide or show open windows.
 
-### Windows Key or Alt + Numpad Keys for Volume Control
+### Windows or Alt + Numpad Keys for Volume Control
 
 Let's you control the volume of your PC by pressing `Windows or Alt + Numpad4/7/8` for Volume Up, Down, and Mute.
 
