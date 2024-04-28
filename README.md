@@ -2,13 +2,13 @@
 
 Ellie's AHK Script!
 
-`Host.ahk` has all the main scripts you execute using keyboard keybinds.
+[`Host.ahk`](https://github.com/ellierewind/AHK/blob/main/Host.ahk) has all the main scripts you execute using keyboard keybinds.
 
-`UserCommands.ahk` has the scripts you execute using the CapsLock menu.
+[`UserCommands.ahk`](https://github.com/ellierewind/AHK/blob/main/GUI/UserCommands.ahk) has the scripts you execute using the CapsLock menu.
 
-`Premiere - Right click timeline to move playhead.ahk` is a standalone script.
+[`Premiere - Right click timeline to move playhead.ahk`](https://github.com/ellierewind/AHK/blob/main/Settings/Premiere%20-%20Right%20click%20timeline%20to%20move%20playhead.ahk) is a standalone script.
 
-`General.ahk` and `GUI.ahk` can be ignored. Please do not change or move anything in those files if you don't know what you're doing.
+[`General.ahk`](https://github.com/ellierewind/AHK/blob/main/Settings/General.ahk) and [`GUI.ahk`](https://github.com/ellierewind/AHK/blob/main/GUI/GUI.ahk) can be ignored. Please do not change or move anything in those files if you don't know what you're doing.
 
 
 # Features
@@ -66,7 +66,7 @@ Prevents you from opening the help and center page accidentally.
 
 ### Easily Change Timezones
 
-Using the `CapsLock` menu, you can type in "CST" for US Central Time. "PST" for US Pacific Time. "EST" for US Eastern Time.
+Using the `CapsLock` menu, you can type in `CST` for US Central Time. `PST` for US Pacific Time. `EST` for US Eastern Time.
 
 ### Premiere Pro  - Easy Presets
 
@@ -75,6 +75,14 @@ Easily add effects presets in Premiere Pro using the `preset()` function. This i
 ### Insanely Fast Auto Clicker
 
 By pressing and holding down the hotkey, it will click as fast as your PC can handle. Up to 700 clicks per second.
+
+### Broken Keys Rebinding
+
+As a personal use case, my current keyboard has the `; / :` key broken. I rebinded it to different key, in this case I used the `\` key. Since this is a personal use case, you can easily comment out or remove that in `Host.ahk` by finding `Royal Kludge Keyboard Broken Keys Reassign` section.
+
+### Custom G604 Binds
+
+Again, this is a personal use case, but I use the `F24` key as a modifier key similar to how we usually use  `Ctrl`, `Alt`, or `Shift`. I also use `F20` to bring up an [AutoHotPie](https://github.com/dumbeau/AutoHotPie) menu.
 
 # Installation
 
