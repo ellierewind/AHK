@@ -34,8 +34,13 @@ CoordMode, Pixel, screen
 #SingleInstance force ;only one instance of this script may run at a time!
 
 
+
+
+
 preset(A_Args[1])
 ExitApp
+
+
 
 
 
