@@ -2,13 +2,13 @@
 
 Ellie's AHK Script!
 
-[`Host.ahk`](https://github.com/ellierewind/AHK/blob/main/Host.ahk) has all the main scripts you execute using keyboard keybinds.
+[`Host.ahk`](Host.ahk) has all the main scripts you execute using keyboard keybinds.
 
-[`UserCommands.ahk`](https://github.com/ellierewind/AHK/blob/main/GUI/UserCommands.ahk) has the scripts you execute using the CapsLock menu.
+[`UserCommands.ahk`](GUI/UserCommands.ahk) has the scripts you execute using the CapsLock menu.
 
-[`Premiere - Right click timeline to move playhead.ahk`](https://github.com/ellierewind/AHK/blob/main/Scripts/Premiere%20-%20Right%20click%20timeline%20to%20move%20playhead.ahk) is a standalone script.
+[`Premiere - Right click timeline to move playhead.ahk`](Scripts/Premiere%20-%20Right%20click%20timeline%20to%20move%20playhead.ahk) is a standalone script.
 
-[`General.ahk`](https://github.com/ellierewind/AHK/blob/main/Settings/General.ahk) and [`GUI.ahk`](https://github.com/ellierewind/AHK/blob/main/GUI/GUI.ahk) can be ignored. Please do not change or move anything in those files if you don't know what you're doing.
+[`General.ahk`]Settings/General.ahk) and [`GUI.ahk`](GUI/GUI.ahk) can be ignored. Please do not change or move anything in those files if you don't know what you're doing.
 
 
 # Features
