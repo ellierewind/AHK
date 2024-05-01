@@ -436,7 +436,7 @@ MCEnchant(LoopTimes, HowFast)
 }
 
 
-MCAutoCraft(ItemName, LoopTimes, HowFast)
+MCAutoCraft(ItemName, LoopTimes, HowFast)             ; Inspired by Xisuma!
 {	
 	PixelGetColor, color1, 2045, 571                  ; Coords of 3x3 Craft Output Border when CraftBook is Open
 	PixelGetColor, color2, 1812, 578                  ; Coords of 3x3 Craft Output Border when CraftBook is Closed
@@ -447,7 +447,7 @@ MCAutoCraft(ItemName, LoopTimes, HowFast)
 
 			if (color3 = "0x000000")
 				{
-					Click, 1529, 568                      ; Click on CraftBook
+					Click, 1529, 568                  ; Click on CraftBook
 					Sleep %HowFast%
 				}
 
