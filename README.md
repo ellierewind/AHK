@@ -80,6 +80,10 @@ This functionality was created by [TaranVH](https://github.com/TaranVH/2nd-keybo
 
 By pressing and holding down the hotkey, it will click as fast as your PC can handle. Up to 700 clicks per second.
 
+### Additonal Minecraft Functions
+
+Added `AutoCrafting`, `AutoEnchantBooks`, and `AutoRepairItem (Modded)`.
+
 ### Broken Keys Rebinding
 
 As a personal use case, my current keyboard has the `; / :` key broken. I rebinded it to a different key, in this case, I used the `\` key. Since this is a personal use case, you can easily comment out or remove that in `Host.ahk` by finding `Royal Kludge Keyboard Broken Keys Reassign` section.
