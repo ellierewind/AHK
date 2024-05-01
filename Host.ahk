@@ -383,24 +383,24 @@ SendTimeDate(Time)
 
 MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 {
-	PixelGetColor, color, 1915, 562 ; Coords of 2x2 Craft Output
+	PixelGetColor, color, 1915, 562                   ; Coords of 2x2 Craft Output
 
-	if (color = "0x373737") ; Color of 2x2 Craft Output
+	if (color = "0x373737")                           ; Color of 2x2 Craft Output
 	Loop %LoopTimes%
 		{
-			;Send, e                                 ; Opens Inventory
+			;Send, e                                  ; Opens Inventory
 			;Sleep, %HowFast%
-			MouseMove, 1777, 588                     ; CraftSlot 01
+			MouseMove, 1777, 588                      ; CraftSlot 01
 			Sleep, 50
-			Send, %SlotX%                            ; SlotX
+			Send, %SlotX%                             ; SlotX
 			Sleep, %HowFast%
-			MouseMove, 1820, 588                     ; CraftSlot 02
+			MouseMove, 1820, 588                      ; CraftSlot 02
 			Sleep, %HowFast%
-			Send, %SlotY%                            ; SlotY
+			Send, %SlotY%                             ; SlotY
 			Sleep, %HowFast%
-			MouseMove, 1940, 564                     ; Craft Output
+			MouseMove, 1940, 564                      ; Craft Output
 			Sleep, %HowFast%
-			Send, %SlotX%                            ; SlotX
+			Send, %SlotX%                             ; SlotX
 			Sleep, %HowFast%
 			Send, {Escape}
 		}
@@ -444,9 +444,11 @@ MCAutoCraft(ItemName, LoopTimes, HowFast)
 			PixelGetColor, color3, 1529, 568          ; Coords of CraftBook When Closed
 
 			if (color3 = "0x000000")
-				Click, 1529, 568                      ; Click on CraftBook
-				Sleep %HowFast%
-	
+				{
+					Click, 1529, 568                      ; Click on CraftBook
+					Sleep %HowFast%
+				}
+
 				Click, 1336, 518                      ; Click on Search Box
 				Sleep, %HowFast%
 				Send, ^a                              ; Selects All Text in Search Box
