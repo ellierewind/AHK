@@ -37,8 +37,6 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
-
-
 ;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; G604 Assignments ;;;
@@ -116,9 +114,7 @@ Return
 ;       ;;; Replaces NumpadSubtract [-] to Windows Key + D [Show Desktop] ;;;
 
 #IfWinNotActive, ahk_class MediaPlayerClassicW ; Disables this hotkey when mpc-hc is in focus
-	
 NumpadSub::#d
-
 #IfWinNotActive
 Return
 
@@ -269,12 +265,9 @@ Return
 ;       ;;; Zooms in and Pans up in MPC-HC with Windows Key + M ;;;
 
 #IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to MPC-HC
-
 ':: ; Win+M
-MPCZoomer(12, 12)
-
+MPCZoomer(12, 12) ; (Up, Zoom)
 #IfWinActive ; End of restriction
-
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -298,25 +291,16 @@ Return
 ;                               ;;; Gaming Hotkeys ;;;                                     ;    
 ;__________________________________________________________________________________________;
 
+
+
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot 2 - Repair on Slot 5 ;;;
-F15::
-	Send, e ; Opens Inventory
-	Sleep, 50 
-	MouseMove, 1777, 588 ; Craft 01
-	Sleep, 50
-	Send, 2 ; Slot 02
-	Sleep, 50
-	MouseMove, 1820, 588 ; Craft 02
-	Sleep, 50
-	Send, 5 ; Slot 05
-	Sleep, 50
-	MouseMove, 1940, 564 ; Craft Output
-	Sleep, 50
-	Send, 2 ; Slot 02
-	Sleep, 50
-	Send, {Escape}
+;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y ;;;
+
+#IfWinActive ahk_exe javaw.exe
+`::
+MCRepairItem(2, 5, 1, 50) ; (SlotX, SlotY, LoopTimes, HowFast)
+#IfWinActive
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -326,21 +310,12 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 ;       ;;; Minecraft - Enchant 27 Books ;;;
+#IfWinActive ahk_exe javaw.exe
 F18::
-Send, {Shift down}  ; Hold Shift key down
-Sleep, 100          ; Wait for 100 milliseconds
-
-Loop 27 {
-	Click, 1434, 798    ; Click on the first specific position
-	Sleep, 50           ; Wait for 50 milliseconds
-	Click, 1718, 590    ; Click on the second specific position
-	Sleep, 50           ; Wait for 50 milliseconds
-	Click, 1470, 533    ; Click on the third specific position
-	Sleep, 50           ; Wait for 50 milliseconds
-}
-
-Send, {Shift up}    ; Release Shift key
+MCEnchant(27, 15) ; (LoopsX, HowFast)
+#IfWinActive
 Return
+
 
 ;-------------------------------------------------------------------------------------------
 
@@ -382,6 +357,8 @@ While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
 	}
 }
 
+
+
 MPCZoomer(Up, Zoom)
 {
 	; Send Numpad9 x times - Zooms in using MPC-HC
@@ -390,17 +367,73 @@ MPCZoomer(Up, Zoom)
 		  SendInput, {Numpad9}
 		}
 	  
-		; Send Ctrl+Numpad9 x times - Pans up using MPC-HC
+		; Send Ctrl+Numpad8 x times - Pans up using MPC-HC
 		Loop, %Zoom%
 		{
 		  SendInput, ^{Numpad8}
 		}
 }
 
+
+
 SendTimeDate(Time)
 {
 	FormatTime, CurrentDateTime,, %Time%
 	Send %CurrentDateTime%
+}
+
+
+
+MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
+{
+	PixelGetColor, color, 1915, 562 ; Coords of 2x2 Craft Output
+
+	if (color = "0x373737") ; Color of 2x2 Craft Output
+	Loop %LoopTimes%
+		{
+			;Send, e ; Opens Inventory
+			;Sleep, %HowFast%
+			MouseMove, 1777, 588 ; CraftSlot 01
+			Sleep, 50
+			Send, %SlotX% ; SlotX
+			Sleep, %HowFast%
+			MouseMove, 1820, 588 ; CraftSlot 02
+			Sleep, %HowFast%
+			Send, %SlotY% ; SlotY
+			Sleep, %HowFast%
+			MouseMove, 1940, 564 ; Craft Output
+			Sleep, %HowFast%
+			Send, %SlotX% ; SlotX
+			Sleep, %HowFast%
+			Send, {Escape}
+		}
+
+}
+
+
+
+MCEnchant(LoopsX, HowFast)
+{
+
+	PixelGetColor, color, 1498, 609 ; Coords of enchanted item slot border
+
+	if (color = "0x373737") ; Color of enchanted item slot border
+		{
+			Send, {Shift down}  ; Hold Shift key down
+			Sleep, 100          ; Wait for 100 milliseconds
+			Click, 1559, 906    ; Click on item on Hotbar2
+			Loop %LoopsX%
+				{
+				Click, 1505, 906    ; Click on item on Hotbar1
+				Sleep, %HowFast%
+				Click, 1658, 633    ; Click on enchantment
+				Sleep, %HowFast%
+				Click, 1528, 621    ; Click on enchanted item
+				Sleep, %HowFast%
+				}
+			Send, {Shift up}    ; Release Shift key
+		}
+
 }
 
 ;;;;-----------------------------------------------------------------------------------------------;
