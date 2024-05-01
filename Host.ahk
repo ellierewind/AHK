@@ -16,7 +16,7 @@ Return
 Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 
 ;;;;-----------------------------------------------------------------------------------------------;
-;                            ;;;<Prerequisites>;;;                                                ;
+;                            ;;;<Prerequisites>;;;                                                 ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
 ; For the preset() function [Created by TaranVH] to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel,
@@ -44,7 +44,7 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;       ;;; G604 Assignments ;;;
 
 F24 & WheelUp::
-SendInput, {Volume_Up} ; F4 + Scroll Wheel Up as Volume up
+SendInput, {Volume_Up}   ; F24 + Scroll Wheel Up as Volume up
 Return
 
 F24 & WheelDown::
@@ -52,31 +52,31 @@ SendInput, {Volume_Down} ; F24 + Scroll Wheel Down as Volume down
 Return
 
 F24 & Left::
-VirtualDesktop("Left")
+VirtualDesktop("Left")   ; F24 + Left as Switch to Previous Virtual Desktop
 Return
 
 F24 & Right::
-VirtualDesktop("Right")
+VirtualDesktop("Right")  ; F24 + Right as Switch to Next Virtual Desktop
 Return
 
 
 
 F23::
-MouseClicker("LButton","F23")
+MouseClicker("LButton","F23") ; F23 as LeftClick
 Return
 
 F22::
-MouseClicker("RButton","F22")
+MouseClicker("RButton","F22") ; F22 as RightClick
 Return
 
 
 
 F24 & F23::
-MouseAutoClicker("Left","F24","F23")
+MouseAutoClicker("Left","F24","F23")  ; F24 + F23 as Auto LeftClick
 return
 
 F24 & F22::
-MouseAutoClicker("Right","F24","F22")
+MouseAutoClicker("Right","F24","F22") ; F24 + F23 as Auto RightClick
 return
 
 ;-------------------------------------------------------------------------------------------------------------------
@@ -113,11 +113,13 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Middle mouse button to move up a folder in Explorer ;;;
+;       ;;; Replaces NumpadSubtract [-] to Windows Key + D [Show Desktop] ;;;
 
-#IfWinActive, ahk_class CabinetWClass
-~MButton::Send !{Up} 
-#IfWinActive
+#IfWinNotActive, ahk_class MediaPlayerClassicW ; Disables this hotkey when mpc-hc is in focus
+	
+NumpadSub::#d
+
+#IfWinNotActive
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -126,11 +128,14 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Middle mouse button to move up a folder in Context Explorer ;;;
+;       ;;; Middle mouse button to move up a folder in Explorer and Context Explorer ;;;
 
-#IfWinActive, ahk_class #32770
+;       ;;; Disables F1 key in File Explorer ;;;
+
+#If WinActive("ahk_class CabinetWClass") || WinActive("ahk_class #32770")
 ~MButton::Send !{Up} 
-#IfWinActive
+F1::
+#If
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -151,6 +156,36 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
+;       ;;; Replaces Windows Key / Alt + Numpad Keys for Volume Control ;;;
+
+#NumpadHome::
+#Numpad7::
+!NumpadHome::
+!Numpad7::
+Send {Volume_Up}   ; Replaces Windows Key / Alt + NumpadHome/Numpad7 [Home]/[7] as Volume up
+Return
+
+#NumpadLeft::
+#Numpad4::
+!NumpadLeft::
+!Numpad4::
+Send {Volume_Down} ; Replaces Windows Key / Alt + NumpadLeft/Numpad4 [Left]/[4] as Volume Down
+Return
+
+#NumpadUp::
+#Numpad8::
+!NumpadUp::
+!Numpad8::
+Send {Volume_Mute} ; Replaces Windows Key / Alt + NumpadUp/Numpad8   [Up]/[8]   as Volume Mute
+Return
+
+
+;-------------------------------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------------------------------
+
 ;       ;;; Switch Virtual Desktops. Use Windows Key + Q and Windows Key + E ;;;
 
 #q::
@@ -159,87 +194,6 @@ Return
 
 #e::
 VirtualDesktop("Right")
-Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Replaces NumpadSubtract [-] to Windows Key + D [Show Desktop] ;;;
-
-#IfWinNotActive, ahk_class MediaPlayerClassicW ; Disables this hotkey when mpc-hc is in focus
-{	
-NumpadSub::#d
-}
-#IfWinNotActive
-Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Replaces Windows key + Numpad Keys for Volume Control ;;;
-
-#NumpadHome::
-Send {Volume_Up}   ; Replaces Windows Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
-Return
-
-#NumpadLeft::
-Send {Volume_Down} ; Replaces Windows Key + NumpadLeft [Left] as Volume Down [Numlock has to be off]
-Return
-
-#NumpadUp::
-Send {Volume_Mute} ; Replaces Windows Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
-Return
-
-
-#Numpad7::
-Send {Volume_Up}   ; Replaces Windows Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
-Return
-
-#Numpad4::
-Send {Volume_Down} ; Replaces Windows Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
-Return
-
-#Numpad8::
-Send {Volume_Mute} ; Replaces Windows Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
-Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Replaces Alt + Numpad Keys for Volume Control ;;;
-
-!NumpadHome::
-Send {Volume_Up}   ; Replaces Alt Key + NumpadHome [Home] as Volume up   [Numlock has to be off]
-Return
-
-!NumpadLeft::
-Send {Volume_Down} ; Replaces Alt Key + NumpadLeft [Left] as Volume Down [Numlock has to be off]
-Return
-
-!NumpadUp::
-Send {Volume_Mute} ; Replaces Alt Key + NumpadUp   [Up]   as Volume Mute [Numlock has to be off]
-Return
-
-
-!Numpad7::
-Send {Volume_Up}   ; Replaces Alt Key + Numpad7    [7]    as Volume up   [Numlock has to be on]
-Return
-
-!Numpad4::
-Send {Volume_Down} ; Replaces Alt Key + Numpad4    [4]    as Volume Down [Numlock has to be on]
-Return
-
-!Numpad8::
-Send {Volume_Mute} ; Replaces Alt Key + Numpad8    [8]    as Volume Mute [Numlock has to be on]
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -307,19 +261,6 @@ Return
 ;       ;;; Replace "Insert" key with Paste (Ctrl + V). Use [Insert] ;;;
 
 Ins::^v
-Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Disables F1 key in File Explorer ;;;
-
-#IfWinActive ahk_class CabinetWClass
-F1::
-#IfWinActive
 Return
 
 ;-------------------------------------------------------------------------------------------
