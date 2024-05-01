@@ -24,7 +24,7 @@ This functionality was created by [plul](https://github.com/plul/Public-AutoHotK
 
 ### Middle Mouse Button moves up a folder in Explorer
 
-If you press on the `Middle Mouse Button`, you'll move up a folder in Windows Files explorer. This also works on "Open In" or Context Explorer windows.
+If you press the `Middle Mouse Button`, you'll move up a folder in Windows Files explorer. This also works on "Open In" or Context Explorer windows.
 
 ### Windows + MouseScroll - Volume Control
 
@@ -32,7 +32,7 @@ If you hold down the Windows Key and use the scroll wheel of your mouse, you'll 
 
 ### Switch Virtual Desktops Easily
 
-By Using `Windows + Q` and `Windows + E`, you'll be able to switch through virtual desktops with ease.
+By using `Windows + Q` and `Windows + E`, you'll be able to switch through virtual desktops with ease.
 
 ### Use NumpadSubtract to Show Desktop
 
@@ -56,7 +56,7 @@ You can also use the `CapsLock` menu by typing "ext" for File Extensions and "hi
 
 `Windows + W` will send the current date and time with the format YYYY-MM-DD - HH:MM:SS.
 
-`Windows + Shift + W` sends current date only.
+`Windows + Shift + W` sends the current date only.
 
 ### Replacing Insert Key as a Paste key
 
@@ -64,7 +64,7 @@ You can also use the `CapsLock` menu by typing "ext" for File Extensions and "hi
 
 ### Disabling F1 Key in File Explorer and Google Chrome
 
-Prevents you from opening the help and center page accidentally.
+Prevents you from opening the help center page accidentally.
 
 ### Easily Change Timezones
 
@@ -72,7 +72,7 @@ Using the `CapsLock` menu, you can type in `CST` for US Central Time. `PST` for 
 
 ### Premiere Pro  - Easy Presets
 
-Easily add effects presets in Premiere Pro using the `preset()` function. This is function/script is from TaranVH. Please click on the credits below to learn more.
+Easily add effects presets in Premiere Pro using the `preset()` function.
 
 This functionality was created by [TaranVH](https://github.com/TaranVH/2nd-keyboard)
 
@@ -82,7 +82,7 @@ By pressing and holding down the hotkey, it will click as fast as your PC can ha
 
 ### Broken Keys Rebinding
 
-As a personal use case, my current keyboard has the `; / :` key broken. I rebinded it to different key, in this case I used the `\` key. Since this is a personal use case, you can easily comment out or remove that in `Host.ahk` by finding `Royal Kludge Keyboard Broken Keys Reassign` section.
+As a personal use case, my current keyboard has the `; / :` key broken. I rebinded it to a different key, in this case, I used the `\` key. Since this is a personal use case, you can easily comment out or remove that in `Host.ahk` by finding `Royal Kludge Keyboard Broken Keys Reassign` section.
 
 ### Custom G604 Binds
 
