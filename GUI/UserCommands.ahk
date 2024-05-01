@@ -58,11 +58,6 @@ else if Pedersen = t%A_Space% ; Go to a twitter profile.
     gui_search_title := "Twitter @"
     gui_search("https://twitter.com/REPLACEME/with_replies")
 } 
-else if Pedersen = url ; Open an URL from the clipboard (naive - will try to run whatever is in the clipboard)
-{
-    gui_destroy()
-    run %ClipBoard%
-}
 else if Pedersen = git ; Open GitHub Desktop
 {
     gui_destroy()
@@ -72,6 +67,7 @@ else if Pedersen = git ; Open GitHub Desktop
 ;-------------------------------------------------------------------------------
 ;;; OPEN FOLDERS ;;;
 ;-------------------------------------------------------------------------------
+
 else if Pedersen = desk%A_Space% ; Opens Desktop Folder
 {
     gui_destroy()
@@ -91,6 +87,7 @@ else if Pedersen = rec%A_Space% ; Opens Recycle Bin
 ;-------------------------------------------------------------------------------
 ;;; MISCELLANEOUS ;;;
 ;-------------------------------------------------------------------------------
+
 else if Pedersen = ext ; Toggles File Extensions (in Windows Explorer)
 {
     gui_destroy()
