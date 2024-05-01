@@ -296,26 +296,18 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 ;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y ;;;
-
-#IfWinActive ahk_exe javaw.exe
-`::
-MCRepairItem(2, 5, 1, 50) ; (SlotX, SlotY, LoopTimes, HowFast)
-#IfWinActive
-Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
 ;       ;;; Minecraft - Enchant 27 Books ;;;
+
 #IfWinActive ahk_exe javaw.exe
+
+F15::
+MCRepairItem(2, 5, 1, 50) ; (SlotX, SlotY, LoopTimes, HowFast)
+
 F18::
 MCEnchant(27, 15) ; (LoopsX, HowFast)
+
 #IfWinActive
 Return
-
 
 ;-------------------------------------------------------------------------------------------
 
