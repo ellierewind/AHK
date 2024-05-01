@@ -197,9 +197,9 @@ Return
 ;       ;;; Changes Tab (in Google Chrome) ;;;
 
 #IfWinActive ahk_exe chrome.exe
-	F1::^+Tab
-	F2::^Tab
-	F3::Media_Play_Pause
+	F1::Media_Play_Pause
+	F2::^+Tab
+	F3::^Tab
 #IfWinActive
 	Return
 
