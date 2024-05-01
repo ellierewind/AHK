@@ -111,7 +111,10 @@ Startup folder can be found here: "C:\ProgramData\Microsoft\Windows\Start Menu\P
 Once you run the script, it'll show a prompt for the first time you use it, and it'll ask you to download AHK v1.1.37.02. Click yes.
 
 # Prerequisites
- For the preset() function [Created by [TaranVH](https://github.com/TaranVH/2nd-keyboard)] to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel, find the following commands, and add these keyboard shortcut assignments to them:
+
+### preset()
+
+ To make the `preset()` function to work, you MUST go into Adobe Premiere's Keyboard Shortcuts panel, find the following commands, and add these keyboard shortcut assignments to them:
  
  >Ctrl +               B  =      Application > Select Find Box
 
@@ -130,6 +133,12 @@ Once you run the script, it'll show a prompt for the first time you use it, and 
  
 
  Alternatively, you can add your pre-made keyboard shortcuts to Adobe Premiere.
+
+### Minecraft Functions
+
+ To make these functions to work, you MUST check if it works within Minecraft. If it doesn't seem to work, you need to change the screen coordinates on the functions I've written in [`Host.ahk`](Host.ahk).
+
+ You can use `WindowSpy` to get the screen coordinates you need for each line. `WindowSpy` should be available to use once you install AutoHotKey.
 
 # Credits
 
