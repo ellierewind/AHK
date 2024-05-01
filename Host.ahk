@@ -129,7 +129,6 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 ;       ;;; Middle mouse button to move up a folder in Explorer and Context Explorer ;;;
-
 ;       ;;; Disables F1 key in File Explorer ;;;
 
 #If WinActive("ahk_class CabinetWClass") || WinActive("ahk_class #32770")
@@ -243,13 +242,11 @@ Return
 ;       ;;; Insert Date and Time with Windows Key + W and Windows Key + Shift + W ;;;
 
 #w:: ; Windows + W
-FormatTime, CurrentDateTime,, yyyy-MM-dd - hh;mm tt
-Send %CurrentDateTime%
+SendTimeDate("yyyy-MM-dd - hh;mm;ss tt")
 Return
 
 +#w:: ; Windows + Shift + W
-FormatTime, CurrentTime,, hh;mm tt
-Send %CurrentTime%
+SendTimeDate("hh;mm;ss tt")
 Return
 
 ;-------------------------------------------------------------------------------------------
@@ -274,18 +271,7 @@ Return
 #IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to MPC-HC
 
 ':: ; Win+M
-
-  ; Send Numpad9 x times - Zooms in using MPC-HC
-  Loop, 12
-  {
-    SendInput, {Numpad9}
-  }
-
-  ; Send Ctrl+Numpad9 x times - Pans up using MPC-HC
-  Loop, 12
-  {
-    SendInput, ^{Numpad8}
-  }
+MPCZoomer(12, 12)
 
 #IfWinActive ; End of restriction
 
@@ -314,10 +300,10 @@ Return
 
 ;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot 2 - Repair on Slot 5 ;;;
 F15::
-	Send, e
-	Sleep, 50 ; Adjust the sleep duration as needed (in milliseconds)
+	Send, e ; Opens Inventory
+	Sleep, 50 
 	MouseMove, 1777, 588 ; Craft 01
-	Sleep, 50 ; Adjust the sleep duration as needed (in milliseconds)
+	Sleep, 50
 	Send, 2 ; Slot 02
 	Sleep, 50
 	MouseMove, 1820, 588 ; Craft 02
@@ -358,21 +344,6 @@ Return
 
 
 
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Car Sale Sim ;;;
-F16::
-	Click, 3189, 1401    ; Click on the first specific position
-	Sleep, 20            ; Wait for 50 milliseconds
-	Click, 2264, 393     ; Click on the second specific position
-	Sleep, 20            ; Wait for 50 milliseconds
-	Click, 1282, 1219    ; Click on the third specific position
-	Sleep, 20    
-Return
-
-;-------------------------------------------------------------------------------------------
-
-
 ;_________________________________________________________________________________________________________________________________;
 ;                                                                                                                                 ;
 ;                                              ;;; Functions ;;;                                                                  ;    
@@ -391,7 +362,7 @@ SendInput, {LWin down}{LCtrl down}{%LeftRight% down}{Lwin up}{LCtrl up}{%LeftRig
 
 
 
-MouseClicker(LRButton,Key)
+MouseClicker(LRButton, Key)
 {
 SendInput {%LRButton% Down} ;Press Left or Right Mouse button
 KeyWait %Key% ; Wait for release
@@ -407,6 +378,27 @@ While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
    	 Click, %LeftRight%
 	 Sleep 1
 	}
+}
+
+MPCZoomer(Up, Zoom)
+{
+	; Send Numpad9 x times - Zooms in using MPC-HC
+	Loop, %Up%
+		{
+		  SendInput, {Numpad9}
+		}
+	  
+		; Send Ctrl+Numpad9 x times - Pans up using MPC-HC
+		Loop, %Zoom%
+		{
+		  SendInput, ^{Numpad8}
+		}
+}
+
+SendTimeDate(Time)
+{
+	FormatTime, CurrentDateTime,, %Time%
+	Send %CurrentDateTime%
 }
 
 ;;;;-----------------------------------------------------------------------------------------------;
