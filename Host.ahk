@@ -199,6 +199,7 @@ Return
 #IfWinActive ahk_exe chrome.exe
 	F1::^+Tab
 	F2::^Tab
+	F3::Media_Play_Pause
 #IfWinActive
 	Return
 
@@ -294,8 +295,9 @@ Return
 
 ;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y ;;;
 ;       ;;; Minecraft - Enchant 27 Books ;;;
+;       ;;; Minecraft - AutoCraft with Crafting Book ;;;
 ;       ;;; Please make sure that the screen coords are accurate. If the mouse clicks look off, replace the coordinates down in the functions below and use WindowSpy to replace the coords with your own. ;;;
-;       ;;; This currently only works with my screen (3440x1440), and only if Minecraft is fullscreened, and has the GUI Scale set to 3. ;;;
+;       ;;; This currently only works with my screen (3440x1440), and only if Minecraft is maximized, and has the GUI Scale set to 3. ;;;
 
 #IfWinActive ahk_exe javaw.exe
 
@@ -304,6 +306,10 @@ MCRepairItem(2, 5, 1, 50) ; (HotbarSlotX, HotbarSlotX, LoopTimes, HowFast)
 
 F18::
 MCEnchant(27, 15) ; (LoopsX, HowFast)
+
+`::
+MCAutoCraft("Gold Ingot", 4, 50) ;(ItemName, LoopTimes, HowFast)
+Return
 
 #IfWinActive
 Return
@@ -382,19 +388,19 @@ MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 	if (color = "0x373737") ; Color of 2x2 Craft Output
 	Loop %LoopTimes%
 		{
-			;Send, e ; Opens Inventory
+			;Send, e                                 ; Opens Inventory
 			;Sleep, %HowFast%
-			MouseMove, 1777, 588 ; CraftSlot 01
+			MouseMove, 1777, 588                     ; CraftSlot 01
 			Sleep, 50
-			Send, %SlotX% ; SlotX
+			Send, %SlotX%                            ; SlotX
 			Sleep, %HowFast%
-			MouseMove, 1820, 588 ; CraftSlot 02
+			MouseMove, 1820, 588                     ; CraftSlot 02
 			Sleep, %HowFast%
-			Send, %SlotY% ; SlotY
+			Send, %SlotY%                            ; SlotY
 			Sleep, %HowFast%
-			MouseMove, 1940, 564 ; Craft Output
+			MouseMove, 1940, 564                     ; Craft Output
 			Sleep, %HowFast%
-			Send, %SlotX% ; SlotX
+			Send, %SlotX%                            ; SlotX
 			Sleep, %HowFast%
 			Send, {Escape}
 		}
@@ -406,25 +412,58 @@ MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 MCEnchant(LoopTimes, HowFast)
 {
 
-	PixelGetColor, color, 1498, 609 ; Coords of enchanted item slot border
+	PixelGetColor, color, 1498, 609                   ; Coords of enchanted item slot border
 
-	if (color = "0x373737") ; Color of enchanted item slot border
+	if (color = "0x373737")                           ; Color of enchanted item slot border
 		{
-			Send, {Shift down}  ; Hold Shift key down
+			SendInput, {Shift down}                   ; Hold Shift key down
 			Sleep, 100
-			Click, 1559, 906    ; Click on item on Hotbar2
+			Click, 1559, 906                          ; Click on item on Hotbar2
 			Loop %LoopTimes%
 				{
-				Click, 1505, 906    ; Click on item on Hotbar1
+				Click, 1505, 906                      ; Click on item on Hotbar1
 				Sleep, %HowFast%
-				Click, 1658, 633    ; Click on enchantment
+				Click, 1658, 633                      ; Click on enchantment
 				Sleep, %HowFast%
-				Click, 1528, 621    ; Click on enchanted item
+				Click, 1528, 621                      ; Click on enchanted item
 				Sleep, %HowFast%
 				}
-			Send, {Shift up}    ; Release Shift key
-		}
+			SendInput, {Shift up}                     ; Release Shift key
+		} 
 
+}
+
+
+MCAutoCraft(ItemName, LoopTimes, HowFast)
+{	
+	PixelGetColor, color1, 2045, 571                  ; Coords of 3x3 Craft Output Border when CraftBook is Open
+	PixelGetColor, color2, 1812, 578                  ; Coords of 3x3 Craft Output Border when CraftBook is Closed
+
+	if (color1 = "0x373737") || (color2 = "0x373737") ; Color of 3x3 Craft Output Border
+		{
+			PixelGetColor, color3, 1529, 568          ; Coords of CraftBook When Closed
+
+			if (color3 = "0x000000")
+				Click, 1529, 568                      ; Click on CraftBook
+				Sleep %HowFast%
+	
+				Click, 1336, 518                      ; Click on Search Box
+				Sleep, %HowFast%
+				Send, ^a                              ; Selects All Text in Search Box
+				Send, {Backspace}                     ; Deletes All Text in Search Box
+				Sleep, %HowFast%
+				Send, %ItemName%                      ; Types in Item Name
+				Sleep, %HowFast%
+	
+				Loop, %LoopTimes%
+					{
+						SendInput, {Shift down}       ; Hold Shift key down
+						Click, 1308, 585              ; Click on First Item in Craft Book Menu
+						Sleep, %HowFast%
+						Click, 2081, 584              ; Click on 3x3 Craft Output
+						SendInput, {Shift up}         ; Release Shift key
+					}
+		}
 }
 
 ;;;;-----------------------------------------------------------------------------------------------;
