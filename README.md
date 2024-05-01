@@ -142,6 +142,8 @@ Once you run the script, it'll show a prompt for the first time you use it, and 
 
 # Credits
 
+https://github.com/dumbeau/AutoHotPie
+
 https://github.com/plul/Public-AutoHotKey-Scripts
 
 https://github.com/TaranVH/2nd-keyboard
