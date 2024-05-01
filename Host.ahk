@@ -297,11 +297,13 @@ Return
 
 ;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y ;;;
 ;       ;;; Minecraft - Enchant 27 Books ;;;
+;       ;;; Please make sure that the screen coords are accurate. If the mouse clicks look off, replace the coordinates down in the functions below and use WindowSpy to replace the coords with your own. ;;;
+;       ;;; This currently only works with my screen (3440x1440), and only if Minecraft is fullscreened, and has the GUI Scale set to 3. ;;;
 
 #IfWinActive ahk_exe javaw.exe
 
 F15::
-MCRepairItem(2, 5, 1, 50) ; (SlotX, SlotY, LoopTimes, HowFast)
+MCRepairItem(2, 5, 1, 50) ; (HotbarSlotX, HotbarSlotX, LoopTimes, HowFast)
 
 F18::
 MCEnchant(27, 15) ; (LoopsX, HowFast)
@@ -326,7 +328,7 @@ Return
 
 VirtualDesktop(LeftRight)
 {
-SendInput, {LWin down}{LCtrl down}{%LeftRight% down}{Lwin up}{LCtrl up}{%LeftRight% up}      ; switch virtual desktop
+SendInput, {LWin down}{LCtrl down}{%LeftRight% down}{Lwin up}{LCtrl up}{%LeftRight% up} ; Switch Virtual Desktop
 }
 
 
@@ -404,7 +406,7 @@ MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 
 
 
-MCEnchant(LoopsX, HowFast)
+MCEnchant(LoopTimes, HowFast)
 {
 
 	PixelGetColor, color, 1498, 609 ; Coords of enchanted item slot border
@@ -412,9 +414,9 @@ MCEnchant(LoopsX, HowFast)
 	if (color = "0x373737") ; Color of enchanted item slot border
 		{
 			Send, {Shift down}  ; Hold Shift key down
-			Sleep, 100          ; Wait for 100 milliseconds
+			Sleep, 100
 			Click, 1559, 906    ; Click on item on Hotbar2
-			Loop %LoopsX%
+			Loop %LoopTimes%
 				{
 				Click, 1505, 906    ; Click on item on Hotbar1
 				Sleep, %HowFast%
