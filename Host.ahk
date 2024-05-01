@@ -140,18 +140,15 @@ Return
 ;-------------------------------------------------------------------------------------------
 
 ;       ;;; Adds "Windows Key" + Scroll Up/Down as a modifier for Volume Control ;;;
+;       ;;; Replaces Windows Key / Alt + Numpad Keys for Volume Control ;;;
 
-#WheelUp::SendInput, {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
-#WheelDown::SendInput, {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
+#WheelUp::
+SendInput, {Volume_Up} ; Windows Key + Scroll Wheel Up as Volume up
 Return
 
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Replaces Windows Key / Alt + Numpad Keys for Volume Control ;;;
+#WheelDown::
+SendInput, {Volume_Down} ; Windows Key + Scroll Wheel Down as Volume down
+Return
 
 #NumpadHome::
 #Numpad7::
@@ -265,7 +262,7 @@ Return
 ;       ;;; Zooms in and Pans up in MPC-HC with Windows Key + M ;;;
 
 #IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to MPC-HC
-':: ; Win+M
+'::
 MPCZoomer(12, 12) ; (Up, Zoom)
 #IfWinActive ; End of restriction
 Return
@@ -353,16 +350,16 @@ While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
 
 
 
-MPCZoomer(Up, Zoom)
+MPCZoomer(Zoom, Up)
 {
 	; Send Numpad9 x times - Zooms in using MPC-HC
-	Loop, %Up%
+	Loop, %Zoom%
 		{
 		  SendInput, {Numpad9}
 		}
 	  
 		; Send Ctrl+Numpad8 x times - Pans up using MPC-HC
-		Loop, %Zoom%
+		Loop, %Up%
 		{
 		  SendInput, ^{Numpad8}
 		}
