@@ -2,7 +2,7 @@
 
 RegRead minDelay, HKCU, Software\MouseDebouncer, MinDelay
 if ErrorLevel
-	minDelay := 50  ; Default setting.
+	minDelay := 100  ; Default setting.
 
 #NoTrayIcon  ; Hide initial icon.
 
@@ -30,7 +30,7 @@ Loop
 		prompt .= "`n`nPlease enter a number between 10 and 1000."
 }
 minDelay := newMinDelay
-if (minDelay = 50)
+if (minDelay = 100)
 	RegDelete HKCU, Software\MouseDebouncer
 else
 	RegWrite REG_DWORD, HKCU, Software\MouseDebouncer, MinDelay, %minDelay%
