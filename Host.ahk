@@ -60,21 +60,21 @@ Return
 
 
 F23::
-MouseClicker("LButton","F23") ; F23 as LeftClick
+MouseClicker("LButton", "F23") ; (LRButton, Key) F23 as LeftClick
 Return
 
 F22::
-MouseClicker("RButton","F22") ; F22 as RightClick
+MouseClicker("RButton", "F22") ; (LRButton, Key) F22 as RightClick
 Return
 
 
 
 F24 & F23::
-MouseAutoClicker("Left","F24","F23")  ; F24 + F23 as Auto LeftClick
+MouseAutoClicker("Left",  "F24", "F23", 1)    ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto LeftClick
 return
 
 F24 & F22::
-MouseAutoClicker("Right","F24","F22") ; F24 + F23 as Auto RightClick
+MouseAutoClicker("Right", "F24", "F22", 1) ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto RightClick
 return
 
 ;-------------------------------------------------------------------------------------------------------------------
@@ -307,9 +307,17 @@ MCRepairItem(2, 5, 1, 50) ; (HotbarSlotX, HotbarSlotX, LoopTimes, HowFast)
 F18::
 MCEnchant(27, 15) ; (LoopsX, HowFast)
 
-F16::
-MCAutoCraft("Gold Ingot", 4, 50) ;(ItemName, LoopTimes, HowFast)
+`::
+MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
 Return
+
+; F24 & F23::
+; MouseAutoClicker("Left",  "F24", "F23", 1000)    ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto LeftClick
+; return
+
+; F24 & F22::
+; MouseAutoClicker("Left", "F24", "F22", 700)      ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto RightClick
+; return
 
 #IfWinActive
 Return
@@ -345,12 +353,12 @@ SendInput {%LRButton% Up} ; Release Left or Right Mouse button
 
 
 
-MouseAutoClicker(LeftRight, Key1, Key2)
+MouseAutoClicker(LeftRight, Key1, Key2, HowFast)
 {
 While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
 	{
    	 Click, %LeftRight%
-	 Sleep 1
+	 Sleep  %HowFast%
 	}
 }
 
@@ -453,8 +461,7 @@ MCAutoCraft(ItemName, LoopTimes, HowFast)             ; Inspired by Xisuma!
 
 				Click, 1336, 518                      ; Click on Search Box
 				Sleep, %HowFast%
-				Send, ^a                              ; Selects All Text in Search Box
-				Send, {Backspace}                     ; Deletes All Text in Search Box
+				Send, ^a {Backspace}                  ; Selects and Deletes All Text in Search Box
 				Sleep, %HowFast%
 				Send, %ItemName%                      ; Types in Item Name
 				Sleep, %HowFast%
