@@ -307,7 +307,7 @@ MCRepairItem(2, 5, 1, 50) ; (HotbarSlotX, HotbarSlotX, LoopTimes, HowFast)
 F18::
 MCEnchant(27, 15) ; (LoopsX, HowFast)
 
-`::
+F16::
 MCAutoCraft("Gold Ingot", 4, 50) ;(ItemName, LoopTimes, HowFast)
 Return
 
@@ -379,7 +379,9 @@ SendTimeDate(Time)
 	Send %CurrentDateTime%
 }
 
-
+;;;;-----------------------------------------------------------------------------------------------;
+;      ;;; Ellie's Gaming Functions ;;;                                                            ;
+;;;;-----------------------------------------------------------------------------------------------;
 
 MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 {
