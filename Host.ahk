@@ -154,21 +154,21 @@ Return
 #Numpad7::
 !NumpadHome::
 !Numpad7::
-Send {Volume_Up}   ; Replaces Windows Key / Alt + NumpadHome/Numpad7 [Home]/[7] as Volume up
+SendInput, {Volume_Up}   ; Replaces Windows Key / Alt + NumpadHome/Numpad7 [Home]/[7] as Volume up
 Return
 
 #NumpadLeft::
 #Numpad4::
 !NumpadLeft::
 !Numpad4::
-Send {Volume_Down} ; Replaces Windows Key / Alt + NumpadLeft/Numpad4 [Left]/[4] as Volume Down
+SendInput, {Volume_Down} ; Replaces Windows Key / Alt + NumpadLeft/Numpad4 [Left]/[4] as Volume Down
 Return
 
 #NumpadUp::
 #Numpad8::
 !NumpadUp::
 !Numpad8::
-Send {Volume_Mute} ; Replaces Windows Key / Alt + NumpadUp/Numpad8   [Up]/[8]   as Volume Mute
+SendInput, {Volume_Mute} ; Replaces Windows Key / Alt + NumpadUp/Numpad8   [Up]/[8]   as Volume Mute
 Return
 
 
@@ -302,22 +302,14 @@ Return
 #IfWinActive ahk_exe javaw.exe
 
 F15::
-MCRepairItem(2, 5, 1, 50) ; (HotbarSlotX, HotbarSlotX, LoopTimes, HowFast)
-
-F18::
 MCEnchant(27, 15) ; (LoopsX, HowFast)
 
-`::
+F16::
 MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
 Return
 
-; F24 & F23::
-; MouseAutoClicker("Left",  "F24", "F23", 1000)    ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto LeftClick
-; return
-
-; F24 & F22::
-; MouseAutoClicker("Left", "F24", "F22", 700)      ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto RightClick
-; return
+F17::
+MCRepairItem(2, 5, 1, 50) ; (HotbarSlotX, HotbarSlotX, LoopTimes, HowFast)
 
 #IfWinActive
 Return
@@ -337,21 +329,31 @@ Return
 ;      ;;; Ellie's Functions ;;;                                                                   ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
+;-------------------------------------------------------------------------------------------
+
 VirtualDesktop(LeftRight)
 {
 SendInput, {LWin down}{LCtrl down}{%LeftRight% down}{Lwin up}{LCtrl up}{%LeftRight% up} ; Switch Virtual Desktop
 }
 
+;-------------------------------------------------------------------------------------------
 
+
+
+;-------------------------------------------------------------------------------------------
 
 MouseClicker(LRButton, Key)
 {
-SendInput {%LRButton% Down} ;Press Left or Right Mouse button
-KeyWait %Key% ; Wait for release
-SendInput {%LRButton% Up} ; Release Left or Right Mouse button
+SendInput {%LRButton% Down} ; Press Left or Right Mouse button
+KeyWait %Key%               ; Wait for release
+SendInput {%LRButton% Up}   ; Release Left or Right Mouse button
 }
 
+;-------------------------------------------------------------------------------------------
 
+
+
+;-------------------------------------------------------------------------------------------
 
 MouseAutoClicker(LeftRight, Key1, Key2, HowFast)
 {
@@ -362,7 +364,23 @@ While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
 	}
 }
 
+;-------------------------------------------------------------------------------------------
 
+
+
+;-------------------------------------------------------------------------------------------
+
+SendTimeDate(Time)
+{
+	FormatTime, CurrentDateTime,, %Time%
+	Send %CurrentDateTime%
+}
+
+;-------------------------------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------------------------------
 
 MPCZoomer(Zoom, Up)
 {
@@ -379,70 +397,14 @@ MPCZoomer(Zoom, Up)
 		}
 }
 
+;-------------------------------------------------------------------------------------------
 
-
-SendTimeDate(Time)
-{
-	FormatTime, CurrentDateTime,, %Time%
-	Send %CurrentDateTime%
-}
 
 ;;;;-----------------------------------------------------------------------------------------------;
 ;      ;;; Ellie's Gaming Functions ;;;                                                            ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
-MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
-{
-	PixelGetColor, color, 1915, 562                   ; Coords of 2x2 Craft Output
-
-	if (color = "0x373737")                           ; Color of 2x2 Craft Output
-	Loop %LoopTimes%
-		{
-			;Send, e                                  ; Opens Inventory
-			;Sleep, %HowFast%
-			MouseMove, 1777, 588                      ; CraftSlot 01
-			Sleep, 50
-			Send, %SlotX%                             ; SlotX
-			Sleep, %HowFast%
-			MouseMove, 1820, 588                      ; CraftSlot 02
-			Sleep, %HowFast%
-			Send, %SlotY%                             ; SlotY
-			Sleep, %HowFast%
-			MouseMove, 1940, 564                      ; Craft Output
-			Sleep, %HowFast%
-			Send, %SlotX%                             ; SlotX
-			Sleep, %HowFast%
-			Send, {Escape}
-		}
-
-}
-
-
-
-MCEnchant(LoopTimes, HowFast)
-{
-
-	PixelGetColor, color, 1498, 609                   ; Coords of enchanted item slot border
-
-	if (color = "0x373737")                           ; Color of enchanted item slot border
-		{
-			SendInput, {Shift down}                   ; Hold Shift key down
-			Sleep, 100
-			Click, 1559, 906                          ; Click on item on Hotbar2
-			Loop %LoopTimes%
-				{
-				Click, 1505, 906                      ; Click on item on Hotbar1
-				Sleep, %HowFast%
-				Click, 1658, 633                      ; Click on enchantment
-				Sleep, %HowFast%
-				Click, 1528, 621                      ; Click on enchanted item
-				Sleep, %HowFast%
-				}
-			SendInput, {Shift up}                     ; Release Shift key
-		} 
-
-}
-
+;-------------------------------------------------------------------------------------------
 
 MCAutoCraft(ItemName, LoopTimes, HowFast)             ; Inspired by Xisuma!
 {	
@@ -476,6 +438,70 @@ MCAutoCraft(ItemName, LoopTimes, HowFast)             ; Inspired by Xisuma!
 					}
 		}
 }
+
+;-------------------------------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------------------------------
+
+MCEnchant(LoopTimes, HowFast)
+{
+
+	PixelGetColor, color, 1498, 609                   ; Coords of enchanted item slot border
+
+	if (color = "0x373737")                           ; Color of enchanted item slot border
+		{
+			SendInput, {Shift down}                   ; Hold Shift key down
+			Sleep, 100
+			Click, 1559, 906                          ; Click on item on Hotbar2
+			Loop %LoopTimes%
+				{
+				Click, 1505, 906                      ; Click on item on Hotbar1
+				Sleep, %HowFast%
+				Click, 1658, 633                      ; Click on enchantment
+				Sleep, %HowFast%
+				Click, 1528, 621                      ; Click on enchanted item
+				Sleep, %HowFast%
+				}
+			SendInput, {Shift up}                     ; Release Shift key
+		} 
+
+}
+
+;-------------------------------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------------------------------
+
+MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
+{
+	PixelGetColor, color, 1915, 562                   ; Coords of 2x2 Craft Output
+
+	if (color = "0x373737")                           ; Color of 2x2 Craft Output
+	Loop %LoopTimes%
+		{
+			;Send, e                                  ; Opens Inventory
+			;Sleep, %HowFast%
+			MouseMove, 1777, 588                      ; CraftSlot 01
+			Sleep, 50
+			Send, %SlotX%                             ; SlotX
+			Sleep, %HowFast%
+			MouseMove, 1820, 588                      ; CraftSlot 02
+			Sleep, %HowFast%
+			Send, %SlotY%                             ; SlotY
+			Sleep, %HowFast%
+			MouseMove, 1940, 564                      ; Craft Output
+			Sleep, %HowFast%
+			Send, %SlotX%                             ; SlotX
+			Sleep, %HowFast%
+			Send, {Escape}
+		}
+
+}
+
+;-------------------------------------------------------------------------------------------
 
 ;;;;-----------------------------------------------------------------------------------------------;
 ;      ;;; Toggles File Extensions Function (in Windows Explorer) ;;;                              ;
