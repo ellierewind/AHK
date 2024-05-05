@@ -522,7 +522,7 @@ MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 ;    	 Click, %LeftRight%
 ; 	 Sleep  %HowFast%
 ; 	}
-}
+; }
 
 ;-------------------------------------------------------------------------------------------
 
