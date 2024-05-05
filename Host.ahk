@@ -211,7 +211,7 @@ Return
 
 ;       ;;; Toggles File Extensions (in Windows Explorer) ;;;
 
-#y:: ;Windows + Y
+#y:: ; Windows + Y
 f_ToggleFileExt()
 Return
 
@@ -223,7 +223,7 @@ Return
 
 ;       ;;; Toggles Hidden Files. Use [Windows Key + H] ;;;
 
-#h:: ;Windows + W
+#h:: ; Windows + H
 f_ToggleHidden()
 Return
 
@@ -293,23 +293,20 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Minecraft - Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y ;;;
-;       ;;; Minecraft - Enchant 27 Books ;;;
-;       ;;; Minecraft - AutoCraft with Crafting Book ;;;
 ;       ;;; Please make sure that the screen coords are accurate. If the mouse clicks look off, replace the coordinates down in the functions below and use WindowSpy to replace the coords with your own. ;;;
 ;       ;;; This currently only works with my screen (3440x1440), and only if Minecraft is maximized, and has the GUI Scale set to 3. ;;;
 
-#IfWinActive ahk_exe javaw.exe
+#IfWinActive ahk_exe javaw.exe  ; Minecraft
 
-F15::
-MCEnchant(27, 15) ; (LoopsX, HowFast)
-
-F16::
+F15::                           ; AutoCraft with Crafting Book
 MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
 Return
 
-F17::
-MCRepairItem(2, 5, 1, 50) ; (HotbarSlotX, HotbarSlotX, LoopTimes, HowFast)
+F16::                           ; Enchant 27 Books
+MCEnchant(27, 15)               ; (LoopsX, HowFast)
+
+F17::                           ; Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y
+MCRepairItem(2, 5, 1, 50)       ; (HotbarSlotX, HotbarSlotY, LoopTimes, HowFast)
 
 #IfWinActive
 Return
@@ -591,7 +588,7 @@ f_RefreshExplorer() ;calls the refresh command agian so you see your results
 
 
 ;;;;-----------------------------------------------------------------------------------------------;
-;      ;;; Ctrl Alt S = Select Files - Add Files Names to text file ;;;                                 ;
+;      ;;; Ctrl Alt S = Select Files - Add Files Names to text file ;;;                            ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
 
@@ -630,8 +627,6 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-
-;#If GetKeyState("ScrollLock", "T") ; This makes it so that everything after this line only works when the [ScrollLock] is on
 
 
 ;;;;-----------------------------------------------------------------------------------------------;
