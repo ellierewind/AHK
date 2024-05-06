@@ -98,11 +98,11 @@ Big shoutout to [Beau Gilles](https://github.com/dumbeau/AutoHotPie) since he he
 
 # Installation
 
-Download AHK here: https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.12/AutoHotkey_2.0.12_setup.exe
+[Download AHK here](https://github.com/AutoHotkey/AutoHotkey/releases/download/v2.0.12/AutoHotkey_2.0.12_setup.exe)
 
 Please note that this AHK script is using V1.1. But downloading AHK-v2 is still recommended since the script is still compatible.
 
-Download the whole repo. Afterwards, place these files under "C:\Users\username\AppData\Roaming\AHK" or %appdata%
+Download the whole repo. Afterwards, place these files under `C:\Users\*username*\AppData\Roaming\AHK` or `%appdata%`
 
 Add [`Host.ahk`](Host.ahk) and [`Premiere - Right click timeline to move playhead.ahk`](Scripts/AutoStart/Premiere%20-%20Right%20click%20timeline%20to%20move%20playhead.ahk) to the startup folder.
 
