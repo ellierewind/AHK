@@ -92,7 +92,7 @@ As a personal use case, my current keyboard has the `; / :` key broken. I rebind
 
 Again, this is a personal use case, but I use the `F24` key as a modifier key similar to how we usually use  `Ctrl`, `Alt`, or `Shift`. I also use `F20` to bring up an [AutoHotPie](https://github.com/dumbeau/AutoHotPie) menu.
 
-AutoHotPie can be very powerful. I even adapted the [`Premiere Pro - Easy Presets`](https://github.com/ellierewind/AHK#premiere-pro----easy-presets) function to work with AutoHotPie. You can use this standalone AHK script, [`AHP - preset().ahk`](https://github.com/ellierewind/AHK/blob/main/Scripts/AHP%20-%20preset().ahk), and run it as a file within AHP, and add the following arguments at the end of the file path: `"PRESETNAME" %PieOpenLocX% %PieOpenLocY%`. It should look something like [this](Scripts/AutoHotPie_preset()_Example.png).
+AutoHotPie can be very powerful. I even adapted the [`Premiere Pro - Easy Presets`](https://github.com/ellierewind/AHK#premiere-pro----easy-presets) function to work with AutoHotPie. You can use this standalone AHK script, [`AHP - preset().ahk`](Scripts/AHPScripts/AHP%20-%20preset().ahk), and run it as a file within AHP, and add the following arguments at the end of the file path: `"PRESETNAME" %PieOpenLocX% %PieOpenLocY%`. It should look something like [this](Scripts/AHPScripts/AutoHotPie_preset()_Example.png).
 
 Big shoutout to [Beau Gilles](https://github.com/dumbeau/AutoHotPie) since he helped me out with this script on the [AHP Discord](https://discord.gg/yszsupzR7d)!
 
