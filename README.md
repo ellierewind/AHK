@@ -74,7 +74,7 @@ Using the `CapsLock` menu, you can type in `CST` for US Central Time. `PST` for 
 
 Easily add effects presets in Premiere Pro using the `preset()` function.
 
-This functionality was created by [TaranVH](https://github.com/TaranVH/2nd-keyboard)
+This functionality was created by [TaranVH](https://github.com/TaranVH/2nd-keyboard).
 
 ### Insanely Fast Auto Clicker
 
