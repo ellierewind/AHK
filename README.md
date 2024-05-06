@@ -104,9 +104,9 @@ Please note that this AHK script is using V1.1. But downloading AHK-v2 is still 
 
 Download the whole repo. Afterwards, place these files under "C:\Users\username\AppData\Roaming\AHK" or %appdata%
 
-Add "Host.ahk" and "Premiere - Right click timeline to move playhead.ahk" to the startup folder.
+Add [`Host.ahk`](Host.ahk) and [`Premiere - Right click timeline to move playhead.ahk`](Scripts/AutoStart/Premiere%20-%20Right%20click%20timeline%20to%20move%20playhead.ahk) to the startup folder.
 
-Startup folder can be found here: "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp" or shell:startup
+Startup folder can be found here: `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp` or `shell:startup`
 
 Once you run the script, it'll show a prompt for the first time you use it, and it'll ask you to download AHK v1.1.37.02. Click yes.
 
