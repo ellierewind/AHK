@@ -2,14 +2,14 @@
 ;                                    ;;;<Settings>;;;                                              ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
-; General settings
+; General Settings
 #Include %A_ScriptDir%\Settings\General.ahk
-
-; Load Functions
-#Include %A_ScriptDir%\Settings\Functions.ahk
 
 ; Load the GUI code
 #Include %A_ScriptDir%\GUI\GUI.ahk
+
+; Load Functions
+#Include %A_ScriptDir%\Settings\Functions.ahk
 
 ; Load Hotstrings
 #Include %A_ScriptDir%\Settings\Hotstrings.ahk
