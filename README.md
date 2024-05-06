@@ -44,7 +44,7 @@ Let's you control the volume of your PC by pressing `Windows or Alt + Numpad4/7/
 
 ### Quickly Change Tab in Google Chrome
 
-Using `F1` and `F2` lets you go to the previous or next tab.
+Using `F2` and `F3` lets you go to the previous or next tab.
 
 ### Toggle File Extensions and Hidden Files in File Explorer
 
