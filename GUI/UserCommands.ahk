@@ -102,22 +102,22 @@ else if Pedersen = hid ; Toggles Hidden Files
 else if Pedersen = cst ; Changes Timezone to CST
 {
     gui_destroy()
-    run, %A_ScriptDir%\Scripts\cst.bat
+    run, %A_ScriptDir%\Scripts\ChangeTimezones\cst.bat
 }
 else if Pedersen = est ; Changes Timezone to EST
 {
     gui_destroy()
-    Run %A_ScriptDir%\Scripts\est.bat
+    Run %A_ScriptDir%\Scripts\ChangeTimezones\est.bat
 }
 else if Pedersen = pst ; Changes Timezone to PST
 {
     gui_destroy()
-     Run %A_ScriptDir%\Scripts\pst.bat
+     Run %A_ScriptDir%\Scripts\ChangeTimezones\pst.bat
 }
 else if Pedersen = pht ; Changes Timezone to PHT
 {
     gui_destroy()
-    Run %A_ScriptDir%\Scripts\pht.bat
+    Run %A_ScriptDir%\Scripts\ChangeTimezones\pht.bat
 }
 
 ;-------------------------------------------------------------------------------

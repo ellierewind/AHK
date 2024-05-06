@@ -1,4 +1,4 @@
-﻿:*:!rel::
+:*:!rel::
 Reload
 Return
 
@@ -7,11 +7,19 @@ Run, C:\Users\%A_UserName%\AppData\Local\GitHubDesktop\GitHubDesktop.exe
 Return
 
 :*:!cst::
-Run %A_ScriptDir%\Scripts\cst.bat
+Run %A_ScriptDir%\Scripts\ChangeTimezones\cst.bat
+Return
+
+:*:!est::
+Run %A_ScriptDir%\Scripts\ChangeTimezones\est.bat
+Return
+
+:*:!pst::
+Run %A_ScriptDir%\Scripts\ChangeTimezones\pst.bat
 Return
 
 :*:!pht::
-Run %A_ScriptDir%\Scripts\pht.bat
+Run %A_ScriptDir%\Scripts\ChangeTimezones\pht.bat
 Return
 
 ::@@::
@@ -19,7 +27,7 @@ Send, ellierewind@gmail.com
 Return
 
 
-#IfWinActive ahk_class AutoHotkeyGUI
+#IfWinActive ahk_class AutoHotkeyGUI ; For CapsLock Menu
 
 :*:rpcl::
 Send, rpclipsgta{enter}
