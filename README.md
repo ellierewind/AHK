@@ -136,7 +136,7 @@ Once you run the script, it'll show a prompt for the first time you use it, and 
 
 ### Minecraft Functions
 
- To make these functions to work, you MUST check if it works within Minecraft. If it doesn't seem to work, you need to change the screen coordinates on the functions I've written in [`Host.ahk`](Host.ahk).
+ To make these functions to work, you MUST check if it works within Minecraft. If it doesn't seem to work, you need to change the screen coordinates on the functions I've written in [`Functions.ahk`](Settings/Functions.ahk).
 
  You can use `WindowSpy` to get the screen coordinates you need for each line. `WindowSpy` should be available to use once you install AutoHotKey.
 
