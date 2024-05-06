@@ -6,7 +6,7 @@ Ellie's AHK Script!
 
 [`UserCommands.ahk`](GUI/UserCommands.ahk) has the scripts you execute using the CapsLock menu.
 
-[`Premiere - Right click timeline to move playhead.ahk`](Scripts/Premiere%20-%20Right%20click%20timeline%20to%20move%20playhead.ahk) is a standalone script.
+[`Premiere - Right click timeline to move playhead.ahk`](Scripts/AutoStart/Premiere%20-%20Right%20click%20timeline%20to%20move%20playhead.ahk) is a standalone script.
 
 [`General.ahk`](Settings/General.ahk) and [`GUI.ahk`](GUI/GUI.ahk) can be ignored. Please do not change or move anything in those files if you don't know what you're doing.
 
