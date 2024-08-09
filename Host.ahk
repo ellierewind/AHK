@@ -27,60 +27,7 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;__________________________________________________________________________________________;
 
 
-F6::
-{
-While GetKeyState("N", "P")
-	{
-   	 Click, Right
-	 Sleep  1
-	}
-}
-Return
 
-
-
-
-
-
-
-
-; Ctrl Alt Shift 1 = Smart Object
-; Ctrl Shift ' = Quick Export
-#IfWinActive ahk_exe Photoshop.exe
-
-F1::
-;Click
-Send, ^+!1
-Return
-
-F2::
-Click
-;Send, ^+{'}
-Sleep 20
-Send, {Enter}
-Return
-
-F3::
-MouseGetPos x, y
-Click, 3295, 1376
-MouseMove %x%, %y%
-Return
-
-F4::
-MouseGetPos x, y
-Click, 3295, 1376
-MouseMove %x%, %y%
-Sleep 100
-Click
-Send, ^+!1
-Sleep 300
-Click
-Send, ^+{'}
-Sleep 800
-Send, {Enter}
-Return
-
-#IfWinActive
 ;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; G604 Assignments ;;;
@@ -327,19 +274,19 @@ Return
 ;       ;;; Please make sure that the screen coords are accurate. If the mouse clicks look off, replace the coordinates down in the functions below and use WindowSpy to replace the coords with your own. ;;;
 ;       ;;; This currently only works with my screen (3440x1440), and only if Minecraft is maximized, and has the GUI Scale set to 3. ;;;
 
-#IfWinActive ahk_exe javaw.exe  ; Minecraft
+; #IfWinActive ahk_exe javaw.exe  ; Minecraft
 
-F15::                           ; AutoCraft with Crafting Book
-MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
-Return
+; F15::                           ; AutoCraft with Crafting Book
+; MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
+; Return
 
-F16::                           ; Enchant 27 Books
-MCEnchant(27, 15)               ; (LoopsX, HowFast)
+; F16::                           ; Enchant 27 Books
+; MCEnchant(27, 15)               ; (LoopsX, HowFast)
 
-F17::                           ; Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y
-MCRepairItem(2, 5, 1, 50)       ; (HotbarSlotX, HotbarSlotY, LoopTimes, HowFast)
+; F17::                           ; Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y
+; MCRepairItem(2, 5, 1, 50)       ; (HotbarSlotX, HotbarSlotY, LoopTimes, HowFast)
 
-#IfWinActive
-Return
+; #IfWinActive
+; Return
 
 ;-------------------------------------------------------------------------------------------
