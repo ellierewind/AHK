@@ -183,22 +183,6 @@ MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 
 ;-------------------------------------------------------------------------------------------
 
-; #IfWinActive ahk_exe BlackOps3.exe
-; F13::
-; BO3DG("Left",  "F13", "F13", 50)
-; #IfWinActive
-; Return
-
-; ;-------------------------------------------------------------------------------------------
-
-; BO3DG(LeftRight, Key1, Key2, HowFast)
-; {
-; SendInput {H down}{G down}{H up}{G up}
-; Sleep %HowFast%
-; Click, %LeftRight%
-; SendInput x
-
-
 
 ; While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
 ; 	{

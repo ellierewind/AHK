@@ -26,6 +26,61 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
+
+F6::
+{
+While GetKeyState("N", "P")
+	{
+   	 Click, Right
+	 Sleep  1
+	}
+}
+Return
+
+
+
+
+
+
+
+
+; Ctrl Alt Shift 1 = Smart Object
+; Ctrl Shift ' = Quick Export
+#IfWinActive ahk_exe Photoshop.exe
+
+F1::
+;Click
+Send, ^+!1
+Return
+
+F2::
+Click
+;Send, ^+{'}
+Sleep 20
+Send, {Enter}
+Return
+
+F3::
+MouseGetPos x, y
+Click, 3295, 1376
+MouseMove %x%, %y%
+Return
+
+F4::
+MouseGetPos x, y
+Click, 3295, 1376
+MouseMove %x%, %y%
+Sleep 100
+Click
+Send, ^+!1
+Sleep 300
+Click
+Send, ^+{'}
+Sleep 800
+Send, {Enter}
+Return
+
+#IfWinActive
 ;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; G604 Assignments ;;;
@@ -55,7 +110,6 @@ Return
 F22::
 MouseClicker("RButton", "F22") ; (LRButton, Key) F22 as RightClick
 Return
-
 
 
 F24 & F23::
@@ -118,9 +172,23 @@ Return
 
 #If WinActive("ahk_class CabinetWClass") || WinActive("ahk_class #32770")
 ~MButton::Send !{Up} 
-F1::
+F1::;
 #If
 Return
+
+;-------------------------------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------------------------------
+
+;       ;;; Remaps F1 and F12 to Play/Pause (in Google Chrome) ;;;
+
+#IfWinActive ahk_exe chrome.exe
+	F1::Media_Play_Pause
+	F12::Media_Play_Pause   
+#IfWinActive
+	Return
 
 ;-------------------------------------------------------------------------------------------
 
@@ -183,21 +251,6 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Changes Tab (in Google Chrome) ;;;
-
-#IfWinActive ahk_exe chrome.exe
-	F1::Media_Play_Pause
-	F2::^+Tab
-	F3::^Tab
-#IfWinActive
-	Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
 ;       ;;; Toggles File Extensions (in Windows Explorer) ;;;
 
 #y:: ; Windows + Y
@@ -230,17 +283,6 @@ Return
 
 +#w:: ; Windows + Shift + W
 SendTimeDate("hh;mm;ss tt")
-Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Replace "Insert" key with Paste (Ctrl + V). Use [Insert] ;;;
-
-Ins::^v
 Return
 
 ;-------------------------------------------------------------------------------------------
