@@ -31,7 +31,7 @@ else if Pedersen = y%A_Space% ; Search Youtube
 else if Pedersen = nyaa%A_Space% ; Search Anime on Nyaa.si
 {
     gui_search_title = nyaa.si - Anime
-    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://nyaa.si/?q=REPLACEME")
+    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://nyaa.si/?f=0&c=1_2&?q=REPLACEME")
 }
 else if Pedersen = manga%A_Space% ; Search Manga on Mangadex
 {
