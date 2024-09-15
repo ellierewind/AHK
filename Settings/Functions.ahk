@@ -157,7 +157,7 @@ MCEnchant(LoopTimes, HowFast)
 
 MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 {
-	PixelGetColor, color, 1915, 562                   ; Coords of 2x2 Craft Output
+	PixelGetColor, color, 1914, 589                   ; Coords of 2x2 Craft Output
 
 	if (color = "0x373737")                           ; Color of 2x2 Craft Output
 	Loop %LoopTimes%

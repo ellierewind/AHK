@@ -26,7 +26,9 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
-
+#IfWinActive ahk_class MozillaWindowClass
+^+n::^+p
+#IfWinActive
 
 ;------------------------------------------------------------------------------------------------------------------
 
@@ -274,19 +276,19 @@ Return
 ;       ;;; Please make sure that the screen coords are accurate. If the mouse clicks look off, replace the coordinates down in the functions below and use WindowSpy to replace the coords with your own. ;;;
 ;       ;;; This currently only works with my screen (3440x1440), and only if Minecraft is maximized, and has the GUI Scale set to 3. ;;;
 
-; #IfWinActive ahk_exe javaw.exe  ; Minecraft
+#IfWinActive ahk_exe javaw.exe  ; Minecraft
 
-; F15::                           ; AutoCraft with Crafting Book
-; MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
-; Return
+F15::                           ; AutoCraft with Crafting Book
+MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
+Return
 
-; F16::                           ; Enchant 27 Books
-; MCEnchant(27, 15)               ; (LoopsX, HowFast)
+F16::                           ; Enchant 27 Books
+MCEnchant(27, 15)               ; (LoopsX, HowFast)
 
-; F17::                           ; Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y
-; MCRepairItem(2, 5, 1, 50)       ; (HotbarSlotX, HotbarSlotY, LoopTimes, HowFast)
+F14::                           ; Repair Item for ATM8 - Tool on Slot X - Repair on Slot Y
+MCRepairItem(1, 2, 1, 50)       ; (HotbarSlotX, HotbarSlotY, LoopTimes, HowFast)
 
-; #IfWinActive
-; Return
+#IfWinActive
+Return
 
 ;-------------------------------------------------------------------------------------------

@@ -29,17 +29,17 @@ Return
 
 #IfWinActive ahk_class AutoHotkeyGUI ; For CapsLock Menu
 
-:*:rpcl::
-Send, rpclipsgta{enter}
-Return
+; :*:rpcl::
+; Send, rpclipsgta{enter}
+; Return
 
-:*:gamingl::
-Send, gamingleaksandrumours{enter}
-Return
+; :*:gamingl::
+; Send, gamingleaksandrumours{enter}
+; Return
 
-:*:games::
-Send, games{enter}
-Return
+; :*:games::
+; Send, games{enter}
+; Return
 
 :*:ocul::
 Send, oculusquest{enter}
