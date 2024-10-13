@@ -26,6 +26,47 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
 
+
+
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Keyboard Assignments ;;;
+
+F12::
+send {Delete}
+Return
+
+^F12::
+send {Ctrl Down}{Delete}{Ctrl Up}
+Return
+
+!F12::
+send {Alt Down}{Delete}{Alt Up}
+Return
+
++F12::
+send {Shift Down}{Delete}{Shift Up}
+Return
+
+\::
+SendInput, `;
+Return
+
++\::
+SendInput, `:
+Return
+
+`;::
+SendInput, `\
+Return
+
++;::
+SendInput, `|
+Return
+;------------------------------------------------------------------------------------------------------------------
+
+
+
 #IfWinActive ahk_class MozillaWindowClass
 ^+n::^+p
 #IfWinActive
@@ -73,40 +114,12 @@ return
 
 
 
-;-------------------------------------------------------------------------------------------------------------------
-
-;       ;;; Royal Kludge Keyboard Broken Keys Reassign ;;;
-
-\::
-SendInput, `;
-Return
-
-+\::
-SendInput, `:
-Return
-
-NumpadDiv::
-SendInput,\
-Return
-
-+NumpadDiv::
-SendInput,|
-Return
-
-+NumpadSub::
-SendInput, {NumpadSub}
-Return
-
 ;-------------------------------------------------------------------------------------------
 
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Replaces NumpadSubtract [-] to Windows Key + D [Show Desktop] ;;;
+;       ;;; Replaces the Pause key to Windows Key + D [Show Desktop] ;;;
 
 #IfWinNotActive, ahk_class MediaPlayerClassicW ; Disables this hotkey when mpc-hc is in focus
-NumpadSub::#d
+Pause::#d
 #IfWinNotActive
 Return
 
@@ -131,11 +144,10 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Remaps F1 and F12 to Play/Pause (in Google Chrome) ;;;
+;       ;;; Remaps F1 to Play/Pause (in Google Chrome) ;;;
 
 #IfWinActive ahk_exe chrome.exe
 	F1::Media_Play_Pause
-	F12::Media_Play_Pause   
 #IfWinActive
 	Return
 
@@ -224,7 +236,10 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
-;       ;;; Insert Date and Time with Windows Key + W and Windows Key + Shift + W ;;;
+;       ;;; Insert Date and Time with Windows Key + W and Windows Key + Shift + W [Only works if Scroll Lock is NOT active] ;;;
+
+#If !GetKeyState("ScrollLock", "T") ; Restrict hotkeys to only work when Scroll Lock is NOT active
+
 
 #w:: ; Windows + W
 SendTimeDate("yyyy-MM-dd - hh;mm;ss tt")
@@ -233,6 +248,8 @@ Return
 +#w:: ; Windows + Shift + W
 SendTimeDate("hh;mm;ss tt")
 Return
+
+#If ; End of Scroll Lock restriction
 
 ;-------------------------------------------------------------------------------------------
 
@@ -256,7 +273,7 @@ Return
 
 ;       ;;; Ctrl Alt S = Select Files - Add Files Names to text file ;;;
 
-^!s:: ; Ctrl + Alt + s
+^!s:: ; Ctrl + Alt + S
 SelectFilesText()
 Return
 
