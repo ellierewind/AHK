@@ -58,6 +58,11 @@ else if Pedersen = ani%A_Space% ; Search an /r/Anime discussion
         gui_search_title := "/r/Anime discussion search"
         gui_search("https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME")
     }
+else if Pedersen = url%A_Space% ; Search a URL reddit discussion
+    {
+        gui_search_title := "URL reddit discussion search"
+        gui_search("https://new.reddit.com/search/?q=url%3AREPLACEME")
+    }
 else if Pedersen = t%A_Space% ; Go to a twitter profile.
 {
     gui_search_title := "Twitter @"
