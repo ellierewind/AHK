@@ -129,6 +129,28 @@ Return
 
 ;-------------------------------------------------------------------------------------------
 
+;       ;;; Replaces Page Up & Page Down to Numpad+ & Numpad- [Speed Up & Down in mpc-hc] ;;;
+
+
+#IfWinActive, ahk_class MediaPlayerClassicW
+
+; Remap Page Up to Numpad +
+PgUp::NumpadAdd
+Return
+
+; Remap Page Down to Numpad -
+PgDn::NumpadSub
+Return
+
+#IfWinActive
+
+
+;-------------------------------------------------------------------------------------------
+
+
+
+;-------------------------------------------------------------------------------------------
+
 ;       ;;; Middle mouse button to move up a folder in Explorer and Context Explorer ;;;
 ;       ;;; Disables F1 key in File Explorer ;;;
 
@@ -226,7 +248,7 @@ Return
 
 ;       ;;; Toggles Hidden Files. Use [Windows Key + H] ;;;
 
-#h:: ; Windows + H
+#U:: ; Windows + U
 f_ToggleHidden()
 Return
 
@@ -309,3 +331,14 @@ MCRepairItem(1, 2, 1, 50)       ; (HotbarSlotX, HotbarSlotY, LoopTimes, HowFast)
 Return
 
 ;-------------------------------------------------------------------------------------------
+
+
+; ; Define hotkey Alt+Shift+T (^!t) to convert the clipboard text to title case (capitalize first letter of each word)
+; F1:: ; Ctrl+Alt+Shift+T
+;     clipboard := ""            ; Clear the clipboard first
+;     send ^{c}                  ; Send Ctrl+C to copy the selected text to the clipboard
+;     clipWait, 0.3              ; Wait up to 0.3 seconds for the clipboard to have content
+;     stringLower, clipboard, clipboard ; Convert the clipboard text to lowercase
+;     stringUpper, clipboard, clipboard, T ; Convert the first letter of each word to uppercase
+;     send ^{v}                  ; Send Ctrl+V to paste the modified clipboard content
+;     return
