@@ -50,9 +50,9 @@ While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
 
 ;-------------------------------------------------------------------------------------------
 
-SendTimeDate(Time)
+SendTimeDate(DateTimeFormat)
 {
-	FormatTime, CurrentDateTime,, %Time%
+	FormatTime, CurrentDateTime,, %DateTimeFormat%
 	Send %CurrentDateTime%
 }
 
@@ -62,7 +62,7 @@ SendTimeDate(Time)
 
 ;-------------------------------------------------------------------------------------------
 
-MPCZoomer(Zoom, Up)
+MPCZoomer(Zoom, UpPos, DownPos, LeftPos, RightPos)
 {
 	; Send Numpad9 x times - Zooms in using MPC-HC
 	Loop, %Zoom%
@@ -71,9 +71,27 @@ MPCZoomer(Zoom, Up)
 		}
 	  
 		; Send Ctrl+Numpad8 x times - Pans up using MPC-HC
-		Loop, %Up%
+		Loop, %UpPos%
 		{
 		  SendInput, ^{Numpad8}
+		}
+		
+		; Send Ctrl+Numpad2 x times - Pans down using MPC-HC
+		Loop, %DownPos%
+		{
+		  SendInput, ^{Numpad2}
+		}
+		
+		; Send Ctrl+Numpad4 x times - Pans left using MPC-HC
+		Loop, %LeftPos%
+		{
+		  SendInput, ^{Numpad4}
+		}
+		
+		; Send Ctrl+Numpad6 x times - Pans right using MPC-HC
+		Loop, %RightPos%
+		{
+		  SendInput, ^{Numpad6}
 		}
 }
 
@@ -83,6 +101,14 @@ MPCZoomer(Zoom, Up)
 ;;;;-----------------------------------------------------------------------------------------------;
 ;      ;;; Ellie's Gaming Functions ;;;                                                            ;
 ;;;;-----------------------------------------------------------------------------------------------;
+
+;-------------------------------------------------------------------------------------------
+
+; The pixel coords are for a 3440x1440 screen
+; Minecraft is in maximized windowed mode
+; GUI Scale is set to 3x
+
+;-------------------------------------------------------------------------------------------
 
 ;-------------------------------------------------------------------------------------------
 
@@ -103,10 +129,13 @@ MCAutoCraft(ItemName, LoopTimes, HowFast)             ; Inspired by Xisuma!
 
 				Click, 1336, 518                      ; Click on Search Box
 				Sleep, %HowFast%
-				Send, ^a {Backspace}                  ; Selects and Deletes All Text in Search Box
-				Sleep, %HowFast%
-				Send, %ItemName%                      ; Types in Item Name
-				Sleep, %HowFast%
+				
+				if (ItemName != "") {                 ; Only clear and type if ItemName is not empty
+					Send, ^a {Backspace}              ; Selects and Deletes All Text in Search Box
+					Sleep, %HowFast%
+					Send, %ItemName%                  ; Types in Item Name
+					Sleep, %HowFast%
+				}
 	
 				Loop, %LoopTimes%
 					{
@@ -184,12 +213,6 @@ MCRepairItem(SlotX, SlotY, LoopTimes, HowFast)
 ;-------------------------------------------------------------------------------------------
 
 
-; While GetKeyState(Key1, "P") && GetKeyState(Key2, "P")
-; 	{
-;    	 Click, %LeftRight%
-; 	 Sleep  %HowFast%
-; 	}
-; }
 
 ;-------------------------------------------------------------------------------------------
 

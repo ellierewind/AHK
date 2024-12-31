@@ -1,4 +1,4 @@
-﻿;;;;-----------------------------------------------------------------------------------------------;
+;;;;-----------------------------------------------------------------------------------------------;
 ;                                    ;;;<Settings>;;;                                              ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
@@ -21,10 +21,13 @@ Return
 ^#x::
 Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 
+
 ;__________________________________________________________________________________________;
 ;                                                                                          ;
 ;                               ;;; Windows Hotkeys ;;;                                    ;    
 ;__________________________________________________________________________________________;
+
+
 
 
 
@@ -283,7 +286,7 @@ Return
 
 #IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to MPC-HC
 '::
-MPCZoomer(12, 12) ; (Up, Zoom)
+MPCZoomer(5, 0, 4, 0, 0) ; (Zoom, UpPos, DownPos, LeftPos, RightPos)
 #IfWinActive ; End of restriction
 Return
 
@@ -318,7 +321,7 @@ Return
 #IfWinActive ahk_exe javaw.exe  ; Minecraft
 
 F15::                           ; AutoCraft with Crafting Book
-MCAutoCraft("Gold Ingot", 4, 1) ;(ItemName, LoopTimes, HowFast)
+MCAutoCraft("", 4, 1) ;(ItemName, LoopTimes, HowFast)
 Return
 
 F16::                           ; Enchant 27 Books
