@@ -33,7 +33,7 @@ else if Pedersen = nyaa%A_Space% ; Search Anime on Nyaa.si
     gui_search_title = nyaa.si - Anime
     gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://nyaa.si/?f=0&c=1_2&q=REPLACEME")
 }
-else if Pedersen = manga%A_Space% ; Search Manga on Mangadex
+else if Pedersen = mangadex%A_Space% ; Search Manga on Mangadex
 {
     gui_search_title = MangaDex - Manga
     gui_search("https://mangadex.org/titles?q=REPLACEME")
@@ -58,6 +58,11 @@ else if Pedersen = ani%A_Space% ; Search an /r/Anime discussion
         gui_search_title := "/r/Anime discussion search"
         gui_search("https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME")
     }
+else if Pedersen = manga%A_Space% ; Search an /r/Anime discussion
+    {
+        gui_search_title := "/r/manga discussion search"
+        gui_search("https://www.reddit.com/r/manga/search/?q=REPLACEME")
+    }
 else if Pedersen = url%A_Space% ; Search a URL reddit discussion
     {
         gui_search_title := "URL reddit discussion search"
@@ -73,6 +78,9 @@ else if Pedersen = git ; Open GitHub Desktop
     gui_destroy()
     Run C:\Users\%A_UserName%\AppData\Local\GitHubDesktop\GitHubDesktop.exe
 }
+
+
+
 
 ;-------------------------------------------------------------------------------
 ;;; OPEN FOLDERS ;;;
@@ -149,11 +157,21 @@ else if Pedersen = host ; Edit host script
     gui_destroy()
     run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptFullPath%"
 }
-else if Pedersen = user ; Edit GUI user commands
+else if Pedersen = comm ; Edit GUI user commands
 {
     gui_destroy()
     run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\GUI\UserCommands.ahk"
 }
+else if Pedersen = hot ; Edit GUI user commands
+    {
+        gui_destroy()
+        run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\Settings\Hotstrings.ahk"
+    }
+else if Pedersen = func ; Edit GUI user commands
+    {
+        gui_destroy()
+        run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\Settings\Functions.ahk"
+    }
 else if Pedersen = ? ; Tooltip with list of commands
 {
     GuiControl,, Pedersen, ; Clear the input box

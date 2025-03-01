@@ -1,6 +1,8 @@
-;;;;-----------------------------------------------------------------------------------------------;
-;                                    ;;;<Settings>;;;                                              ;
-;;;;-----------------------------------------------------------------------------------------------;
+;__________________________________________________________________________________________;
+;                                                                                          ;
+;                               ;;; <Settings> ;;;                                         ;    
+;__________________________________________________________________________________________;
+
 
 ; General Settings
 #Include %A_ScriptDir%\Settings\General.ahk
@@ -18,7 +20,7 @@
 Reload
 Return
 
-^#x::
+^#x:: ; Ctrl + Windows + X - Launch Window Spy
 Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 
 
@@ -29,54 +31,51 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 
 
 
-
-
-;------------------------------------------------------------------------------------------------------------------
+;-----------------------------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Keyboard Assignments ;;;
 
 F12::
-send {Delete}
+send {Delete}                          ; F12 as Delete
 Return
 
 ^F12::
-send {Ctrl Down}{Delete}{Ctrl Up}
+send {Ctrl Down}{Delete}{Ctrl Up}      ; Ctrl + F12 as Ctrl + Delete
 Return
 
 !F12::
-send {Alt Down}{Delete}{Alt Up}
+send {Alt Down}{Delete}{Alt Up}        ; Alt + F12 as Alt + Delete
 Return
 
 +F12::
-send {Shift Down}{Delete}{Shift Up}
+send {Shift Down}{Delete}{Shift Up}    ; Shift + F12 as Shift + Delete
 Return
 
+
+
 \::
-SendInput, `;
+SendInput, `;                          ; \ key as semicolon
 Return
 
 +\::
-SendInput, `:
+SendInput, `:                          ; Shift + \ as colon  
 Return
 
 `;::
-SendInput, `\
+SendInput, `\                          ; semicolon key as backslash
 Return
 
 +;::
-SendInput, `|
+SendInput, `|                          ; Shift + semicolon as pipe
 Return
-;------------------------------------------------------------------------------------------------------------------
-
-
-
-#IfWinActive ahk_class MozillaWindowClass
-^+n::^+p
-#IfWinActive
 
 ;------------------------------------------------------------------------------------------------------------------
 
-;       ;;; G604 Assignments ;;;
+
+
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Mouse Assignments ;;;
 
 F24 & WheelUp::
 SendInput, {Volume_Up}   ; F24 + Scroll Wheel Up as Volume up
@@ -94,65 +93,42 @@ F24 & Right::
 VirtualDesktop("Right")  ; F24 + Right as Switch to Next Virtual Desktop
 Return
 
+;------------------------------------------------------------------------------------------------------------------
 
 
-F23::
-MouseClicker("LButton", "F23") ; (LRButton, Key) F23 as LeftClick
+
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Switch Virtual Desktops. Use Windows Key + Q and Windows Key + E ;;;
+
+#q::
+VirtualDesktop("Left")
 Return
 
-F22::
-MouseClicker("RButton", "F22") ; (LRButton, Key) F22 as RightClick
+#e::
+VirtualDesktop("Right")
 Return
 
-
-F24 & F23::
-MouseAutoClicker("Left",  "F24", "F23", 1) ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto LeftClick
-return
-
-F24 & F22::
-MouseAutoClicker("Right", "F24", "F22", 1) ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto RightClick
-return
-
-;-------------------------------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------
 
-;       ;;; Replaces the Pause key to Windows Key + D [Show Desktop] ;;;
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Replaces the Pause key to Windows Key + D  [Show Desktop in mpc-hc] ;;;
 
 #IfWinNotActive, ahk_class MediaPlayerClassicW ; Disables this hotkey when mpc-hc is in focus
 Pause::#d
 #IfWinNotActive
 Return
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------
 
-;       ;;; Replaces Page Up & Page Down to Numpad+ & Numpad- [Speed Up & Down in mpc-hc] ;;;
-
-
-#IfWinActive, ahk_class MediaPlayerClassicW
-
-; Remap Page Up to Numpad +
-PgUp::NumpadAdd
-Return
-
-; Remap Page Down to Numpad -
-PgDn::NumpadSub
-Return
-
-#IfWinActive
-
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Middle mouse button to move up a folder in Explorer and Context Explorer ;;;
 ;       ;;; Disables F1 key in File Explorer ;;;
@@ -163,24 +139,11 @@ F1::;
 #If
 Return
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Remaps F1 to Play/Pause (in Google Chrome) ;;;
-
-#IfWinActive ahk_exe chrome.exe
-	F1::Media_Play_Pause
-#IfWinActive
-	Return
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Adds "Windows Key" + Scroll Up/Down as a modifier for Volume Control ;;;
 ;       ;;; Replaces Windows Key / Alt + Numpad Keys for Volume Control ;;;
@@ -214,40 +177,23 @@ Return
 SendInput, {Volume_Mute} ; Replaces Windows Key / Alt + NumpadUp/Numpad8   [Up]/[8]   as Volume Mute
 Return
 
-
-;-------------------------------------------------------------------------------------------
-
-
-
-;-------------------------------------------------------------------------------------------
-
-;       ;;; Switch Virtual Desktops. Use Windows Key + Q and Windows Key + E ;;;
-
-#q::
-VirtualDesktop("Left")
-Return
-
-#e::
-VirtualDesktop("Right")
-Return
-
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
-;       ;;; Toggles File Extensions (in Windows Explorer) ;;;
+;       ;;; Toggles File Extensions. Use [Windows Key + U] ;;;
 
 #y:: ; Windows + Y
 f_ToggleFileExt()
 Return
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Toggles Hidden Files. Use [Windows Key + H] ;;;
 
@@ -255,11 +201,70 @@ Return
 f_ToggleHidden()
 Return
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Remaps F1 to Play/Pause (in Google Chrome) ;;;
+
+#IfWinActive ahk_exe chrome.exe
+	F1::Media_Play_Pause
+#IfWinActive
+	Return
+
+;------------------------------------------------------------------------------------------------------------------
+
+
+
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Replaces Page Up & Page Down to Numpad+ & Numpad- [Speed Up & Down in mpc-hc] ;;;
+
+#IfWinActive, ahk_class MediaPlayerClassicW
+
+; Remap Page Up to Numpad +
+PgUp::NumpadAdd
+Return
+
+; Remap Page Down to Numpad -
+PgDn::NumpadSub
+Return
+
+#IfWinActive
+
+;------------------------------------------------------------------------------------------------------------------
+
+
+
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Maps Arrow Keys to Numpad Keys for mpc-hc ;;;
+
+#IfWinActive, ahk_class MediaPlayerClassicW
+
+q & Up::Numpad8     ; q + Up Arrow remapped to Numpad 8
+q & Down::Numpad2   ; q + Down Arrow remapped to Numpad 2
+q & Left::Numpad4   ; q + Left Arrow remapped to Numpad 4
+q & Right::Numpad6  ; q + Right Arrow remapped to Numpad 6
+
+w & Up::^Numpad8     ; w + Up Arrow remapped to Ctrl + Numpad 8
+w & Down::^Numpad2   ; w + Down Arrow remapped to Ctrl + Numpad 2
+w & Left::^Numpad4   ; w + Left Arrow remapped to Ctrl + Numpad 4
+w & Right::^Numpad6  ; w + Right Arrow remapped to Ctrl + Numpad 6
+
+End::Numpad5         ; End remapped to Numpad 5
+
+Return
+
+#IfWinActive
+
+;------------------------------------------------------------------------------------------------------------------
+
+
+
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Insert Date and Time with Windows Key + W and Windows Key + Shift + W [Only works if Scroll Lock is NOT active] ;;;
 
@@ -276,25 +281,31 @@ Return
 
 #If ; End of Scroll Lock restriction
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Zooms in and Pans up in MPC-HC with Windows Key + M ;;;
 
 #IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to MPC-HC
 '::
-MPCZoomer(5, 0, 4, 0, 0) ; (Zoom, UpPos, DownPos, LeftPos, RightPos)
+MPCZoomer(1, 1, 0, 0, 0) ; (Zoom, UpPos, DownPos, LeftPos, RightPos)
 #IfWinActive ; End of restriction
 Return
 
-;-------------------------------------------------------------------------------------------
+#IfWinActive ahk_class MediaPlayerClassicW  ; Restrict script to MPC-HC
++'::
+MPCZoomer(1, 0, 1, 0, 0) ; (Zoom, UpPos, DownPos, LeftPos, RightPos)
+#IfWinActive ; End of restriction
+Return
+
+;------------------------------------------------------------------------------------------------------------------
 
 
 
-;-------------------------------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Ctrl Alt S = Select Files - Add Files Names to text file ;;;
 
@@ -313,15 +324,15 @@ Return
 
 
 
-;-------------------------------------------------------------------------------------------
+;------------------------------------------------------------------------------------------------------------------
 
 ;       ;;; Please make sure that the screen coords are accurate. If the mouse clicks look off, replace the coordinates down in the functions below and use WindowSpy to replace the coords with your own. ;;;
-;       ;;; This currently only works with my screen (3440x1440), and only if Minecraft is maximized, and has the GUI Scale set to 3. ;;;
+;       ;;; This currently only works with Ellie's screen (3440x1440), and only if Minecraft is maximized (not fullscreen), and has the GUI Scale set to 3. ;;;
 
 #IfWinActive ahk_exe javaw.exe  ; Minecraft
 
 F15::                           ; AutoCraft with Crafting Book
-MCAutoCraft("", 4, 1) ;(ItemName, LoopTimes, HowFast)
+MCAutoCraft("Bone", 4, 1)       ;(ItemName, LoopTimes, HowFast)
 Return
 
 F16::                           ; Enchant 27 Books
@@ -333,15 +344,4 @@ MCRepairItem(1, 2, 1, 50)       ; (HotbarSlotX, HotbarSlotY, LoopTimes, HowFast)
 #IfWinActive
 Return
 
-;-------------------------------------------------------------------------------------------
-
-
-; ; Define hotkey Alt+Shift+T (^!t) to convert the clipboard text to title case (capitalize first letter of each word)
-; F1:: ; Ctrl+Alt+Shift+T
-;     clipboard := ""            ; Clear the clipboard first
-;     send ^{c}                  ; Send Ctrl+C to copy the selected text to the clipboard
-;     clipWait, 0.3              ; Wait up to 0.3 seconds for the clipboard to have content
-;     stringLower, clipboard, clipboard ; Convert the clipboard text to lowercase
-;     stringUpper, clipboard, clipboard, T ; Convert the first letter of each word to uppercase
-;     send ^{v}                  ; Send Ctrl+V to paste the modified clipboard content
-;     return
+;------------------------------------------------------------------------------------------------------------------

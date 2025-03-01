@@ -113,3 +113,51 @@
 ;RWin::AppsKey
 
 ;-------------------------------------------------------------------
+
+
+;__________________________________________________________________________________________;
+;                                                                                          ;
+;                               ;;; Old & Unused ;;;                                       ;    
+;__________________________________________________________________________________________;
+
+
+
+; ; Define hotkey Alt+Shift+T (^!t) to convert the clipboard text to title case (capitalize first letter of each word)
+; F1:: ; Ctrl+Alt+Shift+T
+;     clipboard := ""            ; Clear the clipboard first
+;     send ^{c}                  ; Send Ctrl+C to copy the selected text to the clipboard
+;     clipWait, 0.3              ; Wait up to 0.3 seconds for the clipboard to have content
+;     stringLower, clipboard, clipboard ; Convert the clipboard text to lowercase
+;     stringUpper, clipboard, clipboard, T ; Convert the first letter of each word to uppercase
+;     send ^{v}                  ; Send Ctrl+V to paste the modified clipboard content
+;     return
+
+
+; F23::
+; MouseClicker("LButton", "F23") ; (LRButton, Key) F23 as LeftClick
+; Return
+
+; F22::
+; MouseClicker("RButton", "F22") ; (LRButton, Key) F22 as RightClick
+; Return
+
+
+; F24 & F23::
+; MouseAutoClicker("Left",  "F24", "F23", 1) ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto LeftClick
+; return
+
+; F24 & F22::
+; MouseAutoClicker("Right", "F24", "F22", 1) ; (LeftRight, Key1, Key2, HowFast) F24 + F23 as Auto RightClick
+; return
+
+
+;------------------------------------------------------------------------------------------------------------------
+
+;       ;;; Replaces the Pause key to Windows Key + D  [Show Desktop in mpc-hc] ;;;
+
+; #IfWinNotActive, ahk_class MediaPlayerClassicW ; Disables this hotkey when mpc-hc is in focus
+; Pause::#d
+; #IfWinNotActive
+; Return
+
+;------------------------------------------------------------------------------------------------------------------

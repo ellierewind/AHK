@@ -349,8 +349,6 @@ Return
 ;      ;;; preset() Function - Directly Apply a Preset Effect to Any Clip With a Single Key ;;;    ;
 ;;;;-----------------------------------------------------------------------------------------------;
 
-; preset() is my most used, and most useful AHK function! There is no good reason why Premiere doesn't have this functionality.
-;keep in mind, I use 150% UI scaling, so your pixel distances for commands like mousemove WILL be different!
 ;to use this script yourself, carefully go through  testing the script and changing the values, ensuring that the script works, one line at a time. use message boxes to check on variables and see where the cursor is. remove those message boxes later when you have it all working!
 
 #IfWinActive ahk_exe Adobe Premiere Pro.exe
