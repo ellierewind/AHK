@@ -56,6 +56,11 @@ FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                             
 Send, ^+h^b%CurrentDateTime% - Ellie's Reply:^+h^b{Shift}+{Enter}                    ; Send formatted reply with bold text and timestamp
 Return
 
+::/cust::                                                                            ; Hotstring for creating a reply with timestamp
+FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                                  ; Get current date and time in specific format
+Send, ^b^i^u%CurrentDateTime% - Customer's Message:^b^i^u{Shift}+{Enter}             ; Send formatted reply with bold text and timestamp
+Return
+
 ::/act::                                                                             ; Hotstring for creating an action item with timestamp
 FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                                  ; Get current date and time in specific format
 Send, ^+h^b%CurrentDateTime% - Ellie's Action Needed:^+h^b{Shift}+{Enter}            ; Send formatted action with bold text and timestamp

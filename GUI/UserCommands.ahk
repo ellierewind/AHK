@@ -56,7 +56,7 @@ else if Pedersen = r%A_Space% ; Go to a subreddit.
 else if Pedersen = ani%A_Space% ; Search an /r/Anime discussion
     {
         gui_search_title := "/r/Anime discussion search"
-        gui_search("https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME")
+        gui_search("https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
     }
 else if Pedersen = manga%A_Space% ; Search an /r/Anime discussion
     {
@@ -157,7 +157,7 @@ else if Pedersen = host ; Edit host script
     gui_destroy()
     run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptFullPath%"
 }
-else if Pedersen = comm ; Edit GUI user commands
+else if Pedersen = user ; Edit GUI user commands
 {
     gui_destroy()
     run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\GUI\UserCommands.ahk"
