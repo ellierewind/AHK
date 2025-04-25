@@ -3,6 +3,7 @@
 ;                               ;;; <Settings> ;;;                                         ;    
 ;__________________________________________________________________________________________;
 
+global VSCode := "C:\Users\" A_UserName "\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 
 ; General Settings
 #Include %A_ScriptDir%\Settings\General.ahk
