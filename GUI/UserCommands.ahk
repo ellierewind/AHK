@@ -2,12 +2,12 @@
 ;;; SEARCH THE WEB ;;;
 ;-------------------------------------------------------------------------------
 
-if Pedersen = g%A_Space% ; Search Google
+if UserCommands = g%A_Space% ; Search Google
 {
     gui_search_title = Google Search
     gui_search("https://www.google.com/search?num=50&safe=off&site=&source=hp&q=REPLACEME&btnG=Search&oq=&gs_l=")
 }
-else if Pedersen = x%A_Space% ; Search Google as Incognito
+else if UserCommands = x%A_Space% ; Search Google as Incognito
 ;   A note on how this works:
 ;   The function name "gui_search()" is poorly chosen.
 ;   What you actually specify as the parameter value is a command to run. It does not have to be a URL.
@@ -23,22 +23,22 @@ else if Pedersen = x%A_Space% ; Search Google as Incognito
 ;;; SEARCH OTHER THINGS ;;;
 ;-------------------------------------------------------------------------------
 
-else if Pedersen = y%A_Space% ; Search Youtube
+else if UserCommands = y%A_Space% ; Search Youtube
 {
     gui_search_title = Search Youtube
     gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://www.youtube.com/results?search_query=REPLACEME")
 }
-else if Pedersen = nyaa%A_Space% ; Search Anime on Nyaa.si
+else if UserCommands = nyaa%A_Space% ; Search Anime on Nyaa.si
 {
     gui_search_title = nyaa.si - Anime
     gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://nyaa.si/?f=0&c=1_2&q=REPLACEME")
 }
-else if Pedersen = mangadex%A_Space% ; Search Manga on Mangadex
+else if UserCommands = mangadex%A_Space% ; Search Manga on Mangadex
 {
     gui_search_title = MangaDex - Manga
     gui_search("https://mangadex.org/titles?q=REPLACEME")
 }
-else if Pedersen = qwe ; What time was x ago
+else if UserCommands = qwe ; What time was x ago
 {
     gui_search_title = What time was x
     gui_search("https://www.google.com/search?q=what+time+was+REPLACEME+ago")
@@ -48,32 +48,32 @@ else if Pedersen = qwe ; What time was x ago
 ;;; LAUNCH WEBSITES AND PROGRAMS ;;;
 ;-------------------------------------------------------------------------------
 
-else if Pedersen = r%A_Space% ; Go to a subreddit.
+else if UserCommands = r%A_Space% ; Go to a subreddit.
 {
     gui_search_title := "/r/"
     gui_search("https://new.reddit.com/r/REPLACEME")
 }
-else if Pedersen = ani%A_Space% ; Search an /r/Anime discussion
+else if UserCommands = ani%A_Space% ; Search an /r/Anime discussion
     {
         gui_search_title := "/r/Anime discussion search"
         gui_search("https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
     }
-else if Pedersen = manga%A_Space% ; Search an /r/Anime discussion
+else if UserCommands = manga%A_Space% ; Search an /r/Anime discussion
     {
         gui_search_title := "/r/manga discussion search"
         gui_search("https://www.reddit.com/r/manga/search/?q=REPLACEME")
     }
-else if Pedersen = url%A_Space% ; Search a URL reddit discussion
+else if UserCommands = url%A_Space% ; Search a URL reddit discussion
     {
         gui_search_title := "URL reddit discussion search"
         gui_search("https://new.reddit.com/search/?q=url%3AREPLACEME")
     }
-else if Pedersen = t%A_Space% ; Go to a twitter profile.
+else if UserCommands = t%A_Space% ; Go to a twitter profile.
 {
     gui_search_title := "Twitter @"
     gui_search("https://twitter.com/REPLACEME/with_replies")
 } 
-else if Pedersen = git ; Open GitHub Desktop
+else if UserCommands = git ; Open GitHub Desktop
 {
     gui_destroy()
     Run C:\Users\%A_UserName%\AppData\Local\GitHubDesktop\GitHubDesktop.exe
@@ -86,22 +86,22 @@ else if Pedersen = git ; Open GitHub Desktop
 ;;; OPEN FOLDERS ;;;
 ;-------------------------------------------------------------------------------
 
-else if Pedersen = desk ; Opens Desktop Folder
+else if UserCommands = desk ; Opens Desktop Folder
 {
     gui_destroy()
     Run, C:\Users\%A_UserName%\Desktop
 }
-else if Pedersen = down ; Opens Downloads Folder
+else if UserCommands = down ; Opens Downloads Folder
 {
     gui_destroy()
     Run, C:\Users\%A_UserName%\Downloads
 }
-else if Pedersen = rec%A_Space% ; Opens Recycle Bin
+else if UserCommands = rec%A_Space% ; Opens Recycle Bin
 {
     gui_destroy()
     Run ::{645FF040-5081-101B-9F08-00AA002F954E}
 }
-else if Pedersen = start ; Opens Startup Folder
+else if UserCommands = start ; Opens Startup Folder
     {
         gui_destroy()
         Run, shell:startup
@@ -111,33 +111,33 @@ else if Pedersen = start ; Opens Startup Folder
 ;;; SCRIPTS ;;;
 ;-------------------------------------------------------------------------------
 
-else if Pedersen = ext ; Toggles File Extensions (in Windows Explorer)
+else if UserCommands = ext ; Toggles File Extensions (in Windows Explorer)
 {
     gui_destroy()
     f_ToggleFileExt()
 }
-else if Pedersen = hid ; Toggles Hidden Files
+else if UserCommands = hid ; Toggles Hidden Files
 {
     
     gui_destroy()
     f_ToggleHidden()
 }
-else if Pedersen = cst ; Changes Timezone to CST
+else if UserCommands = cst ; Changes Timezone to CST
 {
     gui_destroy()
     run, %A_ScriptDir%\Scripts\ChangeTimezones\cst.bat
 }
-else if Pedersen = est ; Changes Timezone to EST
+else if UserCommands = est ; Changes Timezone to EST
 {
     gui_destroy()
     Run %A_ScriptDir%\Scripts\ChangeTimezones\est.bat
 }
-else if Pedersen = pst ; Changes Timezone to PST
+else if UserCommands = pst ; Changes Timezone to PST
 {
     gui_destroy()
      Run %A_ScriptDir%\Scripts\ChangeTimezones\pst.bat
 }
-else if Pedersen = pht ; Changes Timezone to PHT
+else if UserCommands = pht ; Changes Timezone to PHT
 {
     gui_destroy()
     Run %A_ScriptDir%\Scripts\ChangeTimezones\pht.bat
@@ -147,38 +147,38 @@ else if Pedersen = pht ; Changes Timezone to PHT
 ;;; INTERACT WITH THIS AHK SCRIPT ;;;
 ;-------------------------------------------------------------------------------
 
-else if Pedersen = rel ; Reload this script
+else if UserCommands = rel ; Reload this script
 {
     gui_destroy() ; removes the GUI even when the reload fails
     Reload
 }
-else if Pedersen = dir ; Open the directory for this script
+else if UserCommands = dir ; Open the directory for this script
 {
     gui_destroy()
     run, %A_ScriptDir%
 }
-else if Pedersen = host ; Edit host script
+else if UserCommands = host ; Edit host script
 {
     gui_destroy()
     run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptFullPath%"
 }
-else if Pedersen = user ; Edit GUI user commands
+else if UserCommands = user ; Edit GUI user commands
 {
     gui_destroy()
     run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\GUI\UserCommands.ahk"
 }
-else if Pedersen = hot ; Edit GUI user commands
+else if UserCommands = hot ; Edit GUI user commands
     {
         gui_destroy()
         run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\Settings\Hotstrings.ahk"
     }
-else if Pedersen = func ; Edit GUI user commands
+else if UserCommands = func ; Edit GUI user commands
     {
         gui_destroy()
         run, "C:\Users\%A_UserName%\AppData\Local\Programs\Microsoft VS Code\Code.exe" "%A_ScriptDir%\Settings\Functions.ahk"
     }
-else if Pedersen = ? ; Tooltip with list of commands
+else if UserCommands = ? ; Tooltip with list of commands
 {
-    GuiControl,, Pedersen, ; Clear the input box
+    GuiControl,, UserCommands, ; Clear the input box
     Gosub, gui_commandlibrary
 }    
