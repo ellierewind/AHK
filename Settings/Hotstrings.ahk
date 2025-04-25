@@ -41,12 +41,12 @@ Return
 
 ::/com::                                                                             ; Hotstring for creating a comment with timestamp
 FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                                  ; Get current date and time in specific format
-Send, ^+h^b%CurrentDateTime% - Ellie's Comment:^+h^b{Shift}+{Enter}                  ; Send formatted comment with bold text and timestamp
+Send, ^+h^b^i^u%CurrentDateTime% - Ellie's Comment:^+h^b^i^u{Shift}+{Enter}          ; Send formatted comment with bold text and timestamp
 Return
 
 ::/close:: ; Hotstring for creating a closing comment
 FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                                  ; Get current date and time in specific format
-Send, ^+h^b%CurrentDateTime% - Ellie's Comment:^+h^b{Shift}+{Enter}
+Send, ^+h^b^i^u%CurrentDateTime% - Ellie's Comment:^+h^b^i^u{Shift}+{Enter}
 Sleep, 500
 Send, Closing this ticket.
 Return
@@ -63,12 +63,12 @@ Return
 
 ::/act::                                                                             ; Hotstring for creating an action item with timestamp
 FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                                  ; Get current date and time in specific format
-Send, ^+h^b%CurrentDateTime% - Ellie's Action Needed:^+h^b{Shift}+{Enter}            ; Send formatted action with bold text and timestamp
+Send, ^+h^b^i^u%CurrentDateTime% - Ellie's Action Needed:^+h^b^i^u{Shift}+{Enter}    ; Send formatted action with bold text and timestamp
 Return
 
 ::/feed::                                                                            ; Hotstring for creating feedback with timestamp
 FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                                  ; Get current date and time in specific format
-Send, ^+h^b%CurrentDateTime% - Ellie's Feedback:^+h^b{Shift}+{Enter}                 ; Send formatted feedback with bold text and timestamp
+Send, ^+h^b^i^u%CurrentDateTime% - Ellie's Feedback:^+h^b^i^u{Shift}+{Enter}         ; Send formatted feedback with bold text and timestamp
 Return
 
 ::/start::                                                                           ; Hotstring for creating start/end markers
