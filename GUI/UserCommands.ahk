@@ -86,12 +86,12 @@ else if Pedersen = git ; Open GitHub Desktop
 ;;; OPEN FOLDERS ;;;
 ;-------------------------------------------------------------------------------
 
-else if Pedersen = desk%A_Space% ; Opens Desktop Folder
+else if Pedersen = desk ; Opens Desktop Folder
 {
     gui_destroy()
     Run, C:\Users\%A_UserName%\Desktop
 }
-else if Pedersen = down%A_Space% ; Opens Downloads Folder
+else if Pedersen = down ; Opens Downloads Folder
 {
     gui_destroy()
     Run, C:\Users\%A_UserName%\Downloads
@@ -101,9 +101,14 @@ else if Pedersen = rec%A_Space% ; Opens Recycle Bin
     gui_destroy()
     Run ::{645FF040-5081-101B-9F08-00AA002F954E}
 }
+else if Pedersen = start ; Opens Startup Folder
+    {
+        gui_destroy()
+        Run, shell:startup
+    }
 
 ;-------------------------------------------------------------------------------
-;;; MISCELLANEOUS ;;;
+;;; SCRIPTS ;;;
 ;-------------------------------------------------------------------------------
 
 else if Pedersen = ext ; Toggles File Extensions (in Windows Explorer)
