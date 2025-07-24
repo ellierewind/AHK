@@ -31,32 +31,26 @@ else if UserCommands = timewas ; What time was x ago
 else if UserCommands = r%A_Space% ; Go to a subreddit.
 {
     gui_search_title := "/r/"
-    gui_search("https://new.reddit.com/r/REPLACEME")
+    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/r/REPLACEME")
 }
 
 else if UserCommands = ani%A_Space% ; Search an /r/anime discussion
 {
     gui_search_title := "/r/Anime discussion search"
-    gui_search("https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
+    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
 }
 
 else if UserCommands = manga%A_Space% ; Search an /r/manga discussion
 {
-    gui_search_title := "/r/manga discussion search"
-    gui_search("https://www.reddit.com/r/manga/search/?q=REPLACEME")
+    gui_search_title := "Comick.io - Manga search"
+    gui_search("https://comick.io/search?q=REPLACEME")
 }
 
 else if UserCommands = url%A_Space% ; Search a URL reddit discussion{
 {    
     gui_search_title := "URL reddit discussion search"
-    gui_search("https://new.reddit.com/search/?q=url%3AREPLACEME")
+    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=url%3AREPLACEME")
 }
-
-else if UserCommands = t%A_Space% ; Go to a twitter profile.
-{
-    gui_search_title := "Twitter @"
-    gui_search("https://twitter.com/REPLACEME/with_replies")
-} 
 
 else if UserCommands = git ; Open GitHub Desktop
 {
@@ -160,6 +154,13 @@ else if UserCommands = user ; Edit GUI user commands
     run, %VSCode% "%A_ScriptDir%\GUI\UserCommands.ahk"
 }
 
+
+else if UserCommands = com ; Edit GUI user commands
+{
+    gui_destroy()
+    run, %VSCode% "%A_ScriptDir%\GUI\UserCommands.ahk"
+}
+
 else if UserCommands = hot ; Edit GUI user commands
 {
     gui_destroy()
@@ -183,18 +184,33 @@ else if UserCommands = ? ; Tooltip with list of commands
 ;-------------------------------------------------------------------------------
 
 else if UserCommands = g%A_Space% ; Search Google
-    {
-        gui_search_title = Google Search
-        gui_search("https://www.google.com/search?num=50&safe=off&site=&source=hp&q=REPLACEME&btnG=Search&oq=&gs_l=")
-    }
+{
+    gui_search_title = Google Search
+    gui_search("https://www.google.com/search?num=50&safe=off&site=&source=hp&q=REPLACEME&btnG=Search&oq=&gs_l=")
+}
 else if UserCommands = x%A_Space% ; Search Google as Incognito
-    ;   A note on how this works:
-    ;   The function name "gui_search()" is poorly chosen.
-    ;   What you actually specify as the parameter value is a command to run. It does not have to be a URL.
-    ;   Before the command is run, the word REPLACEME is replaced by your input.
-    ;   It does not have to be a search url, that was just the application I had in mind when I originally wrote it.
-    ;   So what this does is that it runs chrome with the arguments "-incognito" and the google search URL where REPLACEME in the URL has been replaced by your input.
-    {
-        gui_search_title = Google Search as Incognito
-        gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://www.google.com/search?safe=off&q=REPLACEME")
-    }
+;   A note on how this works:
+;   The function name "gui_search()" is poorly chosen.
+;   What you actually specify as the parameter value is a command to run. It does not have to be a URL.
+;   Before the command is run, the word REPLACEME is replaced by your input.
+;   It does not have to be a search url, that was just the application I had in mind when I originally wrote it.
+;   So what this does is that it runs chrome with the arguments "-incognito" and the google search URL where REPLACEME in the URL has been replaced by your input.
+{
+    gui_search_title = Google Search as Incognito
+    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://www.google.com/search?safe=off&q=REPLACEME")
+}
+
+else if UserCommands = toggle ; Toggle auto-brackets
+{
+    gui_destroy()
+    global AutoBracketsEnabled
+    AutoBracketsEnabled := !AutoBracketsEnabled
+    TrayTip, Auto-Brackets, % (AutoBracketsEnabled ? "Enabled" : "Disabled"), 2
+
+    #If AutoBracketsEnabled
+    +[::SendInput, {`{}{`}}{Left}      ; Shift + [: Types {} and puts cursor between them
+    +9::SendInput, (){Left}            ; Shift + 9: Types () and puts cursor between them
+    [::SendInput, []{Left}             ; [: Types [] and puts cursor between them
+    <::SendInput, <>{}{Left}             ; [: Types [] and puts cursor between them
+    #If
+}

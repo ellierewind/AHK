@@ -31,17 +31,21 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;__________________________________________________________________________________________;
 
 
-+9::                           ; Shift + 9
-SendInput, (){Left}            ; Types () and puts cursor between them
-Return
+; #If !WinActive("ahk_exe Code.exe") ; Exclude VS Code
 
-+[::                           ; Shift + [
-SendInput, {`{}{`}}{Left}      ; Types {} and puts cursor between them
-Return
+; +9::                           ; Shift + 9
+; SendInput, (){Left}            ; Types () and puts cursor between them
+; Return
 
-[::                            ; [ key
-SendInput, []{Left}            ; Types [] and puts cursor between them
-Return
+; +[::                           ; Shift + [
+; SendInput, {`{}{`}}{Left}      ; Types {} and puts cursor between them
+; Return
+
+; [::                            ; [ key
+; SendInput, []{Left}            ; Types [] and puts cursor between them
+; Return
+
+; #If ; End of exclusion for VS Code
 
 
 #IfWinActive ahk_exe chrome.exe    ; Only run in Chrome
@@ -104,21 +108,21 @@ Return
 
 
 
-\::
-SendInput, `;                          ; \ key as semicolon
-Return
+; \::
+; SendInput, `;                          ; \ key as semicolon
+; Return
 
-+\::
-SendInput, `:                          ; Shift + \ as colon  
-Return
+; +\::
+; SendInput, `:                          ; Shift + \ as colon  
+; Return
 
-`;::
-SendInput, `\                          ; semicolon key as backslash
-Return
+; `;::
+; SendInput, `\                          ; semicolon key as backslash
+; Return
 
-+;::
-SendInput, `|                          ; Shift + semicolon as pipe
-Return
+; +;::
+; SendInput, `|                          ; Shift + semicolon as pipe
+; Return
 
 ;------------------------------------------------------------------------------------------------------------------
 
@@ -322,12 +326,12 @@ Return
 #If !GetKeyState("ScrollLock", "T") ; Restrict hotkeys to only work when Scroll Lock is NOT active
 
 
-#w:: ; Windows + W
++#w:: ; Windows + W
 SendTimeDate("yyyy-MM-dd - hh;mm;ss tt")
 Return
 
-+#w:: ; Windows + Shift + W
-SendTimeDate("hh;mm;ss tt")
+#w:: ; Windows + Shift + W
+SendTimeDate("yyyy-MM-dd")
 Return
 
 #If ; End of Scroll Lock restriction

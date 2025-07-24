@@ -1,6 +1,8 @@
 #IfWinActive
 #IfWinActive
 
+
+
 ;-------------------------------------------------------------------------------------------
 
 :*:/rel::                     ; Hotstring to reload the script
@@ -71,9 +73,146 @@ FormatTime, CurrentDateTime,, yyyy-MM-dd - hh:mm tt                             
 Send, ^+h^b^i^u%CurrentDateTime% - Ellie's Feedback:^+h^b^i^u{Shift}+{Enter}         ; Send formatted feedback with bold text and timestamp
 Return
 
-::/start::                                                                           ; Hotstring for creating start/end markers
-Send, <Start>{Shift}+{Enter}{Shift}+{Enter}{Shift}+{Enter}{Shift}+{Enter}<End>       ; Insert start/end markers with spacing
+NotionRemindAt(Time) {
+    Sleep 200
+    Send, {BackSpace}
+    Send, {BackSpace}
+    Send, {BackSpace}
+    Sleep 250
+    Send, @remind %Time%
+    Sleep 250
+    Send, {Enter}
+    Return
+}
+
+:*:@12am::
+NotionRemindAt("12am")
 Return
+
+:*:@1am::
+NotionRemindAt("1am")
+Return
+
+:*:@2am::
+NotionRemindAt("2am")
+Return
+
+:*:@3am::
+NotionRemindAt("3am")
+Return
+
+:*:@4am::
+NotionRemindAt("4am")
+Return
+
+:*:@5am::
+NotionRemindAt("5am")
+Return
+
+:*:@6am::
+NotionRemindAt("6am")
+Return
+
+:*:@7am::
+NotionRemindAt("7am")
+Return
+
+:*:@8am::
+NotionRemindAt("8am")
+Return
+
+:*:@9am::
+NotionRemindAt("9am")
+Return
+
+:*:@10am::
+NotionRemindAt("10am")
+Return
+
+:*:@11am::
+NotionRemindAt("11am")
+Return
+
+:*:@12pm::
+NotionRemindAt("12pm")
+Return
+
+:*:@1pm::
+NotionRemindAt("1pm")
+Return
+
+:*:@2pm::
+NotionRemindAt("2pm")
+Return
+
+:*:@3pm::
+NotionRemindAt("3pm")
+Return
+
+:*:@4pm::
+NotionRemindAt("4pm")
+Return
+
+:*:@5pm::
+NotionRemindAt("5pm")
+Return
+
+:*:@6pm::
+NotionRemindAt("6pm")
+Return
+
+:*:@7pm::
+NotionRemindAt("7pm")
+Return
+
+:*:@8pm::
+NotionRemindAt("8pm")
+Return
+
+:*:@9pm::
+NotionRemindAt("9pm")
+Return
+
+:*:@10pm::
+NotionRemindAt("10pm")
+Return
+
+:*:@11pm::
+NotionRemindAt("11pm")
+Return
+
+:*:@tom::
+NotionRemindAt("tomorrow")
+Return
+
+:*:@mon::
+NotionRemindAt("next monday")
+Return
+
+:*:@tues::
+NotionRemindAt("next tuesday")
+Return
+
+:*:@wed::
+NotionRemindAt("next wednesday")
+Return
+
+:*:@thurs::
+NotionRemindAt("next thursday")
+Return
+
+:*:@fri::
+NotionRemindAt("next friday")
+Return
+
+:*:@sat::
+NotionRemindAt("next saturday")
+Return
+
+:*:@sun::
+NotionRemindAt("next sunday")
+Return
+
 
 #IfWinActive                                                                         ; Ends the Google Chrome section
 
@@ -137,6 +276,10 @@ Return
 
 :*:hard::
 Send, hardware{enter}
+Return
+
+:*:neur::
+Send, neurosama{enter}
 Return
 
 #IfWinActive
