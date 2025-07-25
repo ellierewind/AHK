@@ -76,8 +76,6 @@ Return
 NotionRemindAt(Time) {
     Sleep 200
     Send, {BackSpace}
-    Send, {BackSpace}
-    Send, {BackSpace}
     Sleep 250
     Send, @remind %Time%
     Sleep 250
