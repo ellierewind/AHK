@@ -19,38 +19,39 @@ else if UserCommands = mangadex%A_Space% ; Search Manga on Mangadex
     gui_search("https://mangadex.org/titles?q=REPLACEME")
 }
 
-else if UserCommands = timewas ; What time was x ago
-{
-    gui_search_title = What time was x
-    gui_search("https://www.google.com/search?q=what+time+was+REPLACEME+ago")
-}
-;-------------------------------------------------------------------------------
-;;; LAUNCH WEBSITES AND PROGRAMS ;;;
-;-------------------------------------------------------------------------------
-
-else if UserCommands = r%A_Space% ; Go to a subreddit.
-{
-    gui_search_title := "/r/"
-    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/r/REPLACEME")
-}
-
-else if UserCommands = ani%A_Space% ; Search an /r/anime discussion
-{
-    gui_search_title := "/r/Anime discussion search"
-    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
-}
-
-else if UserCommands = manga%A_Space% ; Search an /r/manga discussion
+else if UserCommands = manga%A_Space% ; Search for Manga on Comick.io
 {
     gui_search_title := "Comick.io - Manga search"
     gui_search("https://comick.io/search?q=REPLACEME")
 }
 
-else if UserCommands = url%A_Space% ; Search a URL reddit discussion{
-{    
-    gui_search_title := "URL reddit discussion search"
-    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=url%3AREPLACEME")
+else if UserCommands = timewas ; What time was x ago
+{
+    gui_search_title = What time was x
+    gui_search("https://www.google.com/search?q=what+time+was+REPLACEME+ago")
 }
+
+; else if UserCommands = ani%A_Space% ; Search an /r/anime discussion
+; {
+;     gui_search_title := "/r/Anime discussion search"
+;     gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
+; }
+
+; else if UserCommands = url%A_Space% ; Search a URL reddit discussion{
+; {    
+;     gui_search_title := "URL reddit discussion search"
+;     gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=url%3AREPLACEME")
+; }
+
+;-------------------------------------------------------------------------------
+;;; LAUNCH WEBSITES AND PROGRAMS ;;;
+;-------------------------------------------------------------------------------
+
+; else if UserCommands = r%A_Space% ; Go to a subreddit.
+; {
+;     gui_search_title := "/r/"
+;     gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/r/REPLACEME")
+; }
 
 else if UserCommands = git ; Open GitHub Desktop
 {
@@ -211,6 +212,8 @@ else if UserCommands = toggle ; Toggle auto-brackets
     +[::SendInput, {`{}{`}}{Left}      ; Shift + [: Types {} and puts cursor between them
     +9::SendInput, (){Left}            ; Shift + 9: Types () and puts cursor between them
     [::SendInput, []{Left}             ; [: Types [] and puts cursor between them
-    <::SendInput, <>{}{Left}             ; [: Types [] and puts cursor between them
+    <::SendInput, <>{}{Left}           ; <: Types <> and puts cursor between them
+    "::SendInput, ""{Left}              ; ": Types "" and puts cursor between them
+    '::SendInput, ''{Left}              ; ': Types ' and puts cursor between them
     #If
 }
