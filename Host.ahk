@@ -31,60 +31,6 @@ Run "C:\Program Files\AutoHotkey\UX\WindowSpy.ahk"
 ;__________________________________________________________________________________________;
 
 
-; #If !WinActive("ahk_exe Code.exe") ; Exclude VS Code
-
-; +9::                           ; Shift + 9
-; SendInput, (){Left}            ; Types () and puts cursor between them
-; Return
-
-; +[::                           ; Shift + [
-; SendInput, {`{}{`}}{Left}      ; Types {} and puts cursor between them
-; Return
-
-; [::                            ; [ key
-; SendInput, []{Left}            ; Types [] and puts cursor between them
-; Return
-
-; #If ; End of exclusion for VS Code
-
-
-#IfWinActive ahk_exe chrome.exe    ; Only run in Chrome
-F1::
-	SetKeyDelay, 50  ; Set a consistent delay between keystrokes
-	
-	; Condition Selection
-	Send {Tab 2}       ; Combined consecutive tabs
-	; Send {Down 2}     ; Condition New
-	Send {Down 3}     ; Condition Used-Good
-	; Send {Down 4}      ; Condition Used-Acceptable
-	Send {Enter}       ; Enter
-	
-	; Batteries Required
-	Send {Tab 2}
-	Send {Down}{Up}  ; Batteries Req Yes
-	
-	; Batteries Included
-	Send {Tab}
-	Send {Down}{Up}  ; Batteries Inc Yes
-	
-	; Battery Count
-	Send {Tab}1{Tab}
-	
-	; Battery Type
-	Send {Down 10}   ; Combined consecutive downs
-	Send {Enter}
-	
-	; Multiple Battery Powered Components
-	Send {Tab 3}{Down}
-
-	; Fulfillment Channel
-	Send {Tab}{Down}{Up}
-	
-Return
-#IfWinActive                       ; End Chrome-specific section
-
-
-
 
 ;-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -105,24 +51,6 @@ Return
 +F12::
 send {Shift Down}{Delete}{Shift Up}    ; Shift + F12 as Shift + Delete
 Return
-
-
-
-; \::
-; SendInput, `;                          ; \ key as semicolon
-; Return
-
-; +\::
-; SendInput, `:                          ; Shift + \ as colon  
-; Return
-
-; `;::
-; SendInput, `\                          ; semicolon key as backslash
-; Return
-
-; +;::
-; SendInput, `|                          ; Shift + semicolon as pipe
-; Return
 
 ;------------------------------------------------------------------------------------------------------------------
 
@@ -262,12 +190,20 @@ Return
 
 ;------------------------------------------------------------------------------------------------------------------
 
-;       ;;; Remaps F1 to Play/Pause (in Google Chrome) ;;;
+;       ;;; Changes New Window and Incognito Window Functionality on Chrome ;;;
 
-; #IfWinActive ahk_exe chrome.exe
-; 	F1::Media_Play_Pause
-; #IfWinActive
-; 	Return
+#IfWinActive ahk_exe chrome.exe 
+
+^+n:: ; Ctrl + Shift + N
+Run, chrome.exe --profile-directory="Profile 20"
+Return
+
+^n:: ; Ctrl + N
+Run, chrome.exe --profile-directory="Default"
+Return
+
+#IfWinActive
+
 
 ;------------------------------------------------------------------------------------------------------------------
 

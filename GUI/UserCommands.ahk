@@ -31,11 +31,11 @@ else if UserCommands = timewas ; What time was x ago
     gui_search("https://www.google.com/search?q=what+time+was+REPLACEME+ago")
 }
 
-; else if UserCommands = ani%A_Space% ; Search an /r/anime discussion
-; {
-;     gui_search_title := "/r/Anime discussion search"
-;     gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
-; }
+else if UserCommands = ani%A_Space% ; Search an /r/anime discussion
+{
+    gui_search_title := "/r/Anime discussion search"
+    gui_search("C:\Program Files\Google\Chrome\Application\chrome.exe -incognito https://new.reddit.com/search/?q=author%3Aautolovepon%20REPLACEME&type=posts&sort=new")
+}
 
 ; else if UserCommands = url%A_Space% ; Search a URL reddit discussion{
 ; {    
